@@ -1,3 +1,4 @@
+
 export const products = [
   {
     id: 1,
@@ -63,21 +64,21 @@ export const products = [
 
 export const teamMembers = [
   {
-    name: 'Alex "Cable" Johnson',
-    role: 'Lead System Architect',
-    bio: 'With 15 years of experience, Alex designs our most innovative and powerful systems.',
+    name: 'Julián',
+    role: 'Ingeniero Especialista',
+    bio: 'Julián es el cerebro detrás de nuestros ensambles más complejos, asegurando rendimiento y estabilidad.',
     image: 'https://picsum.photos/200/200',
   },
   {
-    name: 'Maria "Volt" Garcia',
-    role: 'Head of Technical Services',
-    bio: 'Maria ensures every build is perfect and provides top-tier support to our customers.',
+    name: 'Jhon',
+    role: 'Líder de Soluciones',
+    bio: 'Jhon se especializa en crear soluciones a medida para las necesidades de cada cliente, desde gaming hasta producción.',
     image: 'https://picsum.photos/201/201',
   },
   {
-    name: 'Sam "Glitch" Chen',
-    role: 'Pro Gamer & QA Lead',
-    bio: 'Sam stress-tests every gaming rig to guarantee competitive-level performance.',
+    name: 'Anderson',
+    role: 'Sales Manager',
+    bio: 'Anderson te guiará para encontrar el equipo perfecto que se ajuste a tus metas y presupuesto.',
     image: 'https://picsum.photos/202/202',
   },
 ];
@@ -88,7 +89,7 @@ export const blogPosts = [
         title: 'Understanding VRAM: How Much Do You Really Need in 2024?',
         excerpt: 'Dive deep into the world of graphics card memory. We break down how much VRAM is enough for gaming, content creation, and AI development.',
         date: '2024-05-10',
-        author: 'Alex "Cable" Johnson',
+        author: 'Julián',
         image: 'https://picsum.photos/1200/800',
     },
     {
@@ -96,7 +97,7 @@ export const blogPosts = [
         title: 'CPU Showdown: Intel vs. AMD for Pure Gaming Performance',
         excerpt: 'The battle for the gaming throne continues. We compare the latest offerings from Intel and AMD to help you choose the right processor for your next build.',
         date: '2024-05-18',
-        author: 'Sam "Glitch" Chen',
+        author: 'Jhon',
         image: 'https://picsum.photos/1200/801',
     },
     {
@@ -104,7 +105,7 @@ export const blogPosts = [
         title: 'The Art of Silence: A Guide to Building a Whisper-Quiet Workstation',
         excerpt: 'Performance doesn\'t have to be loud. Follow our guide to selecting components and techniques for a workstation that stays cool and quiet under pressure.',
         date: '2024-05-25',
-        author: 'Maria "Volt" Garcia',
+        author: 'Anderson',
         image: 'https://picsum.photos/1200/802',
     }
 ]
