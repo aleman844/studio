@@ -89,7 +89,7 @@ export const teamMembers = [
     name: 'Jhon',
     role: 'Líder de Soluciones',
     bio: 'Jhon se especializa en crear soluciones a medida para las necesidades de cada cliente, desde gaming hasta producción.',
-    image: '/A11.png',
+    image: '/A1.png',
   },
   {
     name: 'Anderson',
@@ -106,7 +106,7 @@ export const blogPosts = [
         excerpt: 'Sumérgete en el mundo de la memoria de las tarjetas gráficas. Analizamos cuánta VRAM es suficiente para gaming, creación de contenido y desarrollo de IA.',
         date: '2024-05-10',
         author: 'Julián',
-        image: 'https://picsum.photos/1200/800',
+        image: '/b1.png',
         content: `
           <p>La VRAM, o Video RAM, es uno de los componentes más discutidos y, a menudo, malinterpretados al elegir una tarjeta gráfica (GPU). Actúa como una memoria ultrarrápida dedicada exclusivamente a las tareas gráficas, almacenando texturas, shaders y otros datos que la GPU necesita para renderizar imágenes en tu pantalla. En 2024, con juegos cada vez más complejos y aplicaciones más demandantes, la pregunta es más relevante que nunca: ¿cuánta VRAM necesitas realmente? Para una explicación más detallada, puedes consultar <a href="https://www.techspot.com/article/2670-what-is-vram/" target="_blank" rel="noopener noreferrer">este excelente artículo de TechSpot</a>.</p>
           
@@ -136,7 +136,7 @@ export const blogPosts = [
         excerpt: 'La batalla por el trono del gaming continúa. Comparamos las últimas ofertas de Intel y AMD para ayudarte a elegir el procesador adecuado para tu próximo ensamble.',
         date: '2024-05-18',
         author: 'Jhon',
-        image: 'https://picsum.photos/1200/801',
+        image: '/b2.png',
         content: `
           <p>La elección de la CPU es una de las decisiones más críticas al construir un PC para gaming. Durante años, Intel y AMD han luchado ferozmente por la supremacía, y en 2024, la competencia está más reñida que nunca. Ambos gigantes ofrecen procesadores con un rendimiento excepcional, pero con arquitecturas y filosofías diferentes. ¿Quién se lleva la corona?</p>
           
@@ -174,7 +174,7 @@ export const blogPosts = [
         excerpt: 'El rendimiento no tiene por qué ser ruidoso. Sigue nuestra guía para seleccionar componentes y técnicas para una estación de trabajo que se mantenga fría y silenciosa bajo presión.',
         date: '2024-05-25',
         author: 'Anderson',
-        image: 'https://picsum.photos/1200/802',
+        image: '/b3.png',
         content: `
           <p>Una estación de trabajo potente es una herramienta esencial para cualquier profesional creativo. Sin embargo, el ruido constante de los ventiladores puede ser una gran distracción y afectar la concentración. Afortunadamente, con una selección cuidadosa de componentes y algunas técnicas de ensamblaje, es posible construir una máquina que sea tanto un monstruo de rendimiento como un susurro silencioso.</p>
           
