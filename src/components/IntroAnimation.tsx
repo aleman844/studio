@@ -7,8 +7,18 @@ import Image from 'next/image';
 
 const Starfield = () => {
   const [stars, setStars] = useState<React.CSSProperties[]>([]);
+  const [starfieldStyle, setStarfieldStyle] = useState<React.CSSProperties>({});
 
   useEffect(() => {
+    // Generate a single random direction for the entire starfield
+    const dx = (Math.random() - 0.5) * 40; // Random horizontal movement between -20px and 20px
+    const dy = (Math.random() - 0.5) * 40; // Random vertical movement between -20px and 20px
+    
+    setStarfieldStyle({
+      '--star-dx': `${dx}px`,
+      '--star-dy': `${dy}px`,
+    } as React.CSSProperties);
+
     const generateStars = () => {
       const newStars = Array.from({ length: 150 }).map(() => {
         const size = Math.random() * 2 + 1;
@@ -33,7 +43,7 @@ const Starfield = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="absolute inset-0 z-0 overflow-hidden" style={starfieldStyle}>
       {stars.map((style, index) => (
         <div key={index} style={style} />
       ))}

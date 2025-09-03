@@ -148,7 +148,7 @@ body {
 
   @keyframes move-stars {
     from { transform: translate(0, 0); }
-    to { transform: translate(-20px, -20px); }
+    to { transform: translate(var(--star-dx, -20px), var(--star-dy, -20px)); }
   }
 
 
