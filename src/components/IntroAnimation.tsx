@@ -12,7 +12,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
     const timer = setTimeout(() => {
       setIsExiting(true);
       setTimeout(onFinish, 500); // Wait for fade-out animation to complete
-    }, 3000); // Total duration of the intro screen
+    }, 5000); // Total duration of the intro screen
 
     return () => clearTimeout(timer);
   }, [onFinish]);

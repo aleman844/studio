@@ -25,7 +25,7 @@ export default function LayoutClient({
     } else {
       const timer = setTimeout(() => {
         sessionStorage.setItem('hasSeenIntro', 'true');
-      }, 3500); // Give a bit more time than the animation
+      }, 5500); // Give a bit more time than the animation
       return () => clearTimeout(timer);
     }
   }, []);
