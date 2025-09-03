@@ -109,11 +109,14 @@ body {
   }
   
   @keyframes brush-stroke {
-    from {
-      width: 0%;
+    0% {
+      background-position: 0% 50%;
     }
-    to {
-      width: 100%;
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 
@@ -122,11 +125,20 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
     bottom: 0;
     z-index: 0;
-    background: linear-gradient(90deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2), transparent);
-    animation: brush-stroke 1.5s ease-out forwards;
-    animation-delay: 0.2s;
+    background: linear-gradient(
+      90deg, 
+      hsl(var(--background)),
+      hsl(var(--primary) / 0.1),
+      hsl(var(--accent) / 0.15),
+      hsl(var(--primary) / 0.1),
+      hsl(var(--background))
+    );
+    background-size: 200% 200%;
+    animation: brush-stroke 15s ease infinite;
+    opacity: 0.5;
   }
 
   .animate-scale-in-out {
