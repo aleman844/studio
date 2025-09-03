@@ -1,39 +1,24 @@
 
-"use client";
-
-import { useEffect, useState } from 'react';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Providers from './providers';
-import IntroAnimation from '@/components/IntroAnimation';
-import ScrollAnimation from '@/components/ScrollAnimation';
+import { getDictionary } from '@/lib/dictionaries';
+import LayoutClient from './LayoutClient';
 
-export default function RootLayout({
+
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: string };
 }>) {
-  const [showIntro, setShowIntro] = useState(true);
-
-  useEffect(() => {
-    const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
-    if (hasSeenIntro) {
-      setShowIntro(false);
-    } else {
-      sessionStorage.setItem('hasSeenIntro', 'true');
-    }
-  }, []);
-  
-  const handleIntroFinish = () => {
-    setShowIntro(false);
-  };
+  const dictionary = await getDictionary(params.lang ?? 'es');
 
   return (
-    <html lang={params.lang ?? 'en'} className="dark">
+    <html lang={params.lang ?? 'es'} className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -43,21 +28,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        {showIntro ? (
-          <IntroAnimation onFinish={handleIntroFinish} />
-        ) : (
-          <Providers dictionary={{}}>
-            <div className="relative flex min-h-screen flex-col animate-fade-in">
-              <Header lang={params.lang} />
-              <main className="flex-1 bg-background z-10">{children}</main>
-              <ScrollAnimation>
-                <Footer />
-              </ScrollAnimation>
-            </div>
-            <Toaster />
-          </Providers>
-        )}
+        <Providers dictionary={dictionary}>
+          <LayoutClient lang={params.lang}>
+            {children}
+          </LayoutClient>
+        </Providers>
       </body>
     </html>
   );
 }
+
