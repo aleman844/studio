@@ -10,7 +10,6 @@ const brandLogos = [
   { name: 'ASUS', src: '/asus.png', width: 150, height: 80 },
   { name: 'Acer', src: '/acer.png', width: 150, height: 80 },
   { name: 'Nvidia', src: '/nvidia.png', width: 150, height: 80 },
-  { name: 'AMD', src: '/amd.svg', width: 150, height: 80 },
 ];
 
 export default function Brands() {
@@ -33,28 +32,16 @@ export default function Brands() {
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 items-center">
                     {brandLogos.map((brand) => (
                         <div key={brand.name} className="flex justify-center">
-                            {brand.name === 'AMD' ? (
-                                <div className="bg-white rounded-lg p-2">
-                                    <Image
-                                        src={brand.src}
-                                        alt={`${brand.name} logo`}
-                                        width={brand.width}
-                                        height={brand.height}
-                                        className="object-contain"
-                                    />
-                                </div>
-                            ) : (
-                                <Image
-                                    src={brand.src}
-                                    alt={`${brand.name} logo`}
-                                    width={brand.width}
-                                    height={brand.height}
-                                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                                />
-                            )}
+                            <Image
+                                src={brand.src}
+                                alt={`${brand.name} logo`}
+                                width={brand.width}
+                                height={brand.height}
+                                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                            />
                         </div>
                     ))}
                 </div>
