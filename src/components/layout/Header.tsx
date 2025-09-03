@@ -21,9 +21,14 @@ export default function Header({ lang }: { lang: string }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dict = useDictionary();
+  
+  if (!dict) {
+    return null; // Or a loading skeleton
+  }
   const headerDict = dict.header;
-
-  if (!headerDict) return null; // Or a loading skeleton
+  if (!headerDict) {
+    return null;
+  }
 
   const navLinks = [
     { href: `/`, label: headerDict.home },
