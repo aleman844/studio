@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -162,13 +163,13 @@ body {
     background: linear-gradient(
       90deg, 
       hsl(var(--background)),
-      hsl(var(--primary) / 0.2),
-      hsl(var(--accent) / 0.3),
-      hsl(var(--primary) / 0.2),
+      hsl(var(--primary) / 0.4),
+      hsl(var(--accent) / 0.5),
+      hsl(var(--primary) / 0.4),
       hsl(var(--background))
     );
     background-size: 200% 200%;
-    animation: brush-stroke 15s ease infinite;
+    animation: brush-stroke 8s ease infinite;
     opacity: 0.8;
   }
 
