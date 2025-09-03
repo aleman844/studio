@@ -68,16 +68,16 @@ export default function Header() {
 
   const Logo = ({ className }: { className?: string }) => (
     <Link href={`/${lang}`} className={cn("flex items-center space-x-2", className)} onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
-      <Image src="/logo.svg" alt="Gamers4Gamers Company Logo" width={32} height={32} className="h-8 w-8" />
-      <span className="text-lg font-bold">
-        Gamers <span className="text-accent text-2xl inline-block group-data-[state=open]:animate-wobble-and-rotate group-[.animate-fade-in_&]:animate-wobble-and-rotate -rotate-12">4</span> Gamers
+      <Image src="/logo.svg" alt="Gamers4Gamers Company Logo" width={48} height={48} className="h-12 w-12" />
+      <span className="text-2xl font-bold">
+        Gamers <span className="text-accent text-3xl inline-block group-data-[state=open]:animate-wobble-and-rotate group-[.animate-fade-in_&]:animate-wobble-and-rotate -rotate-12">4</span> Gamers
       </span>
     </Link>
   );
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Logo className="mr-6" />
           <nav className="flex items-center space-x-6 text-sm font-medium">
