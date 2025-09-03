@@ -124,12 +124,21 @@ body {
 
   @keyframes wobble-and-rotate {
     0% { transform: rotate(0deg) translateX(0%); }
-    15% { transform: rotate(-10deg) translateX(-2%); }
-    30% { transform: rotate(10deg) translateX(2%); }
-    45% { transform: rotate(-6deg) translateX(-1%); }
-    60% { transform: rotate(6deg) translateX(1%); }
-    75% { transform: rotate(-2deg) translateX(0%); }
-    100% { transform: rotate(0deg) translateX(0%); }
+    10% { transform: rotate(-8deg) translateX(-3%); }
+    20% { transform: rotate(8deg) translateX(3%); }
+    30% { transform: rotate(-6deg) translateX(-2%); }
+    40% { transform: rotate(6deg) translateX(2%); }
+    /* Start vibrating faster */
+    50% { transform: rotate(-4deg) translateX(-1%); }
+    55% { transform: rotate(4deg) translateX(1%); }
+    60% { transform: rotate(-2deg) translateX(-0.5%); }
+    65% { transform: rotate(2deg) translateX(0.5%); }
+    70% { transform: rotate(-1deg) translateX(-0.2%); }
+    75% { transform: rotate(1deg) translateX(0.2%); }
+    /* Dampen to stop */
+    80% { transform: rotate(-0.5deg) translateX(0%); }
+    85% { transform: rotate(0.5deg) translateX(0%); }
+    90%, 100% { transform: rotate(0deg) translateX(0%); }
   }
 
   @keyframes twinkle {
