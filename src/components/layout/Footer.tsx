@@ -4,14 +4,13 @@
 import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { useDictionary } from '@/hooks/use-dictionary';
 
-export default function Footer({ lang, dict }: { lang: string, dict: any }) {
-  const pathname = usePathname();
+export default function Footer({ lang }: { lang: string }) {
+  const dict = useDictionary();
+  const footerDict = dict.footer;
 
-  if (!dict) return null;
-
-  const footerDict = dict;
+  if (!footerDict) return null;
 
   return (
     <footer className="w-full border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

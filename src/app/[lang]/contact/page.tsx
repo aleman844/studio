@@ -11,8 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone, Twitter, Instagram, Facebook } from "lucide-react";
 import Link from "next/link";
-import { getDictionary } from "@/lib/dictionaries";
-import { useEffect, useState } from "react";
+import { useDictionary } from "@/hooks/use-dictionary";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -21,17 +20,9 @@ const formSchema = z.object({
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
-export default function ContactPage({ params: { lang } }: { params: { lang: string } }) {
-  const [dict, setDict] = useState<any>(null);
+export default function ContactPage() {
+  const dict = useDictionary()?.contact_page;
   const { toast } = useToast();
-
-  useEffect(() => {
-    const fetchDict = async () => {
-      const fullDict = await getDictionary(lang);
-      setDict(fullDict.contact_page);
-    };
-    fetchDict();
-  }, [lang]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

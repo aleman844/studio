@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -15,29 +15,32 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { useDictionary } from '@/hooks/use-dictionary';
 
-export default function Header({ lang, dict }: { lang: string, dict: any }) {
+export default function Header({ lang }: { lang: string }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dict = useDictionary();
+  const headerDict = dict.header;
 
-  if (!dict) return null; // Or a loading skeleton
+  if (!headerDict) return null; // Or a loading skeleton
 
   const navLinks = [
-    { href: `/${lang}/`, label: dict.home },
-    { href: `/${lang}/products`, label: dict.products },
-    { href: `/${lang}/about`, label: dict.about },
-    { href: `/${lang}/blog`, label: dict.blog },
-    { href: `/${lang}/contact`, label: dict.contact },
+    { href: `/${lang}/`, label: headerDict.home },
+    { href: `/${lang}/products`, label: headerDict.products },
+    { href: `/${lang}/about`, label: headerDict.about },
+    { href: `/${lang}/blog`, label: headerDict.blog },
+    { href: `/${lang}/contact`, label: headerDict.contact },
     {
       href: `/${lang}/tools`,
-      label: dict.tools,
+      label: headerDict.tools,
       subLinks: [
-        { href: `/${lang}/tools/seo`, label: dict.seo_optimizer },
-        { href: `/${lang}/tools/article-generator`, label: dict.article_generator },
+        { href: `/${lang}/tools/seo`, label: headerDict.seo_optimizer },
+        { href: `/${lang}/tools/article-generator`, label: headerDict.article_generator },
       ],
     },
   ];
-  
+
   const redirectedPathName = (locale: string) => {
     if (!pathname) return '/';
     const segments = pathname.split('/');
@@ -60,20 +63,20 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
       </Link>
     );
   };
-  
-    const ToolsDropdown = () => (
+
+  const ToolsDropdown = () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className={cn("text-sm font-medium transition-colors hover:text-primary px-0", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>
-          {dict.tools}
+          {headerDict.tools}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem asChild>
-          <Link href={`/${lang}/tools/seo`}>{dict.seo_optimizer}</Link>
+          <Link href={`/${lang}/tools/seo`}>{headerDict.seo_optimizer}</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href={`/${lang}/tools/article-generator`}>{dict.article_generator}</Link>
+          <Link href={`/${lang}/tools/article-generator`}>{headerDict.article_generator}</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -84,7 +87,7 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="px-2">
           <span className="font-medium uppercase">{lang}</span>
-          <span className="sr-only">{dict.language_switcher}</span>
+          <span className="sr-only">{headerDict.language_switcher}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -132,15 +135,17 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
                   {navLinks.map((link) => (
                     link.subLinks ? (
                       <div key={link.href} className='px-4'>
-                         <h4 className="font-medium py-2">{link.label}</h4>
-                         <div className='flex flex-col space-y-4 ml-4'>
-                            {link.subLinks.map(sublink => <NavLink key={sublink.href} {...sublink} />)}
-                         </div>
+                        <h4 className="font-medium py-2">{link.label}</h4>
+                        <div className='flex flex-col space-y-4 ml-4'>
+                          {link.subLinks.map(sublink => <NavLink key={sublink.href} {...sublink} />)}
+                        </div>
                       </div>
                     ) :
-                    <div key={link.href} className='px-4'>
-                      <NavLink {...link} />
-                    </div>
+                      (
+                        <div key={link.href} className='px-4'>
+                          <NavLink {...link} />
+                        </div>
+                      )
                   ))}
                 </div>
               </SheetContent>
@@ -148,15 +153,15 @@ export default function Header({ lang, dict }: { lang: string, dict: any }) {
           </div>
 
           <Link href={`/${lang}`} className="flex items-center space-x-2 md:hidden">
-             <Icons.logo className="h-6 w-6 text-primary" />
-             <span className="font-bold">Gamers4Gamers</span>
+            <Icons.logo className="h-6 w-6 text-primary" />
+            <span className="font-bold">Gamers4Gamers</span>
           </Link>
 
           <nav className="flex items-center gap-2">
             <LanguageSwitcher />
             <Link href={`/${lang}/contact`}>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
-                {dict.contact_us}
+                {headerDict.contact_us}
               </Button>
             </Link>
           </nav>
