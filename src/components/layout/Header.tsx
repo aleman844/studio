@@ -3,11 +3,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
+import { Languages, Menu } from 'lucide-react';
 import { useState } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import { useDictionary } from '@/contexts/DictionaryContext';
 
@@ -34,6 +40,13 @@ export default function Header({ lang }: { lang: string }) {
     },
   ];
 
+  const redirectedPathName = (locale: string) => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
+
   const NavLink = ({ href, label }: { href: string; label: string }) => {
     // Exact match for home, startsWith for others
     const isActive = href === `/${lang}/` ? pathname === href : pathname.startsWith(href);
@@ -50,6 +63,25 @@ export default function Header({ lang }: { lang: string }) {
       </Link>
     );
   };
+
+  const LanguageSwitcher = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Languages className="h-5 w-5" />
+          <span className="sr-only">{dict.language_switcher}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem asChild>
+          <Link href={redirectedPathName('en')}>English</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href={redirectedPathName('es')}>Español</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -105,9 +137,10 @@ export default function Header({ lang }: { lang: string }) {
              <span className="font-bold">Gamers4Gamers</span>
           </Link>
 
-          <nav className="flex items-center">
+          <nav className="flex items-center gap-2">
+            <LanguageSwitcher />
             <Link href={`/${lang}/contact`}>
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
                 {dict.contact_us}
               </Button>
             </Link>

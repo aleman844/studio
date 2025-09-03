@@ -24,7 +24,8 @@
         "tools": "Herramientas",
         "seo_optimizer": "Optimizador SEO",
         "article_generator": "Generador de Artículos",
-        "contact_us": "Contáctanos"
+        "contact_us": "Contáctanos",
+        "language_switcher": "Cambiar idioma"
     },
     "footer": {
         "tagline": "Creando PCs de alto rendimiento para gaming y uso profesional.",

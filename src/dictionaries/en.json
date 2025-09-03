@@ -1,3 +1,4 @@
+
 {
     "home": {
         "title": "Engineered for Victory. Built by Gamers, for Gamers.",
@@ -23,7 +24,8 @@
         "tools": "Tools",
         "seo_optimizer": "SEO Optimizer",
         "article_generator": "Article Generator",
-        "contact_us": "Contact Us"
+        "contact_us": "Contact Us",
+        "language_switcher": "Change language"
     },
     "footer": {
         "tagline": "Crafting high-performance PCs for gaming and professional use.",
