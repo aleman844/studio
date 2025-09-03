@@ -11,6 +11,7 @@ const brandLogos = [
   { name: 'ASUS', src: '/asus.png', width: 150, height: 80 },
   { name: 'Acer', src: '/acer.png', width: 150, height: 80 },
   { name: 'Nvidia', src: '/nvidia.png', width: 150, height: 80 },
+  { name: 'AMD', src: '/amd.png', width: 150, height: 80 },
 ];
 
 export default function Brands() {
@@ -45,7 +46,7 @@ export default function Brands() {
   }
 
   return (
-    <section ref={sectionRef} className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section ref={sectionRef} className="w-full py-12 md:py-24 lg:py-32 bg-card">
       <div className="container px-4 md:px-6">
         <div className={cn(
           "transition-all duration-1000 ease-out",
@@ -61,7 +62,7 @@ export default function Brands() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
           {brandLogos.map((brand, index) => (
             <div
               key={brand.name}
