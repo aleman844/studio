@@ -1,8 +1,8 @@
 
 {
     "home": {
-        "title": "Engineered for Victory. Built by Gamers, for Gamers.",
-        "description": "At Gamers4Gamers, we craft bespoke high-performance PCs for gaming and professional graphic design. Experience unparalleled power and dedicated technical service.",
+        "title": "Elite Performance. Support That Never Quits",
+        "description": "With Gamers 4 Gamers, you don’t just get a PC—you get a reliable partner for every battle, every project, and every challenge.",
         "explore_builds": "Explore Builds",
         "get_a_quote": "Get a Quote",
         "our_mission": "Our Mission",
@@ -13,7 +13,10 @@
         "featured_products_description": "Check out some of our most popular builds, designed for peak performance in gaming and creative work.",
         "view_details": "View Details",
         "meet_the_experts": "Meet the Experts",
-        "team_description": "Our team of passionate builders and technicians are the heart of Gamers4Gamers."
+        "team_description": "Our team of passionate builders and technicians are the heart of Gamers4Gamers.",
+        "trusted_brands": "Trusted Brands",
+        "quality_components": "Guaranteed Quality Components",
+        "trusted_brands_description": "We work exclusively with the industry's leading brands to ensure every component in your PC delivers maximum performance and reliability."
     },
     "header": {
         "home": "Home",

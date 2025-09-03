@@ -1,8 +1,8 @@
 
 {
     "home": {
-        "title": "Diseñado para la Victoria. Hecho por Gamers, para Gamers.",
-        "description": "En Gamers4Gamers, creamos PCs de alto rendimiento a medida para gaming y diseño gráfico profesional. Experimenta un poder sin igual y un servicio técnico dedicado.",
+        "title": "Rendimiento de élite, soporte que nunca te abandona.",
+        "description": "Con Gamers 4 Gamers obtienes más que una PC. Obtienes un aliado confiable para cada partida, cada proyecto y cada desafío.",
         "explore_builds": "Explorar Equipos",
         "get_a_quote": "Obtener Cotización",
         "our_mission": "Nuestra Misión",
@@ -13,7 +13,10 @@
         "featured_products_description": "Echa un vistazo a algunos de nuestros equipos más populares, diseñados para el máximo rendimiento en juegos y trabajo creativo.",
         "view_details": "Ver Detalles",
         "meet_the_experts": "Conoce a los Expertos",
-        "team_description": "Nuestro equipo de apasionados ensambladores y técnicos son el corazón de Gamers4Gamers."
+        "team_description": "Nuestro equipo de apasionados ensambladores y técnicos son el corazón de Gamers4Gamers.",
+        "trusted_brands": "Marcas Aliadas",
+        "quality_components": "Componentes de Calidad Garantizada",
+        "trusted_brands_description": "Trabajamos exclusivamente con las marcas líderes en la industria para asegurar que cada componente de tu PC ofrezca el máximo rendimiento y fiabilidad."
     },
     "header": {
         "home": "Inicio",

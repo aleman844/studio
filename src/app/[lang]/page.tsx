@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getDictionary } from '@/lib/dictionaries';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import Brands from '@/components/Brands';
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
@@ -118,6 +119,8 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             </div>
           </ScrollAnimation>
         </section>
+
+        <Brands />
 
         <section id="team" className="w-full py-12 md:py-24 lg:py-32 bg-card">
           <ScrollAnimation>
