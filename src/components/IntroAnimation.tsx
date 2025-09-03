@@ -2,8 +2,8 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Icons } from './icons';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
   const [isExiting, setIsExiting] = useState(false);
@@ -25,7 +25,13 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
       )}
     >
       <div className="flex flex-col items-center gap-6">
-        <Icons.logo className="h-24 w-24 text-primary animate-scale-in-out" />
+        <Image 
+          src="/logo.svg" 
+          alt="Gamers4Gamers Logo" 
+          width={96} 
+          height={96} 
+          className="h-24 w-24 text-primary animate-scale-in-out animate-spin-slow"
+        />
         <h1 
           className="text-4xl font-bold tracking-wider text-foreground animate-slide-in-bottom" 
           style={{ animationDelay: '0.5s' }}
