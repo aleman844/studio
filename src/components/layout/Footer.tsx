@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export default function Footer() {
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'es';
 
   return (
-    <footer className="sticky bottom-0 w-full border-t border-border/40 bg-card text-card-foreground">
-      <div className="container mx-auto py-8 px-4 md:px-6">
+    <footer className="relative overflow-hidden w-full border-t border-border/40 bg-card text-card-foreground animate-brush-reveal">
+      <div className="container relative z-10 mx-auto py-8 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link href={`/${lang}`} className="flex items-center space-x-2 mb-4">
