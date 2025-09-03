@@ -20,7 +20,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-20 md:py-32 lg:py-40 xl:py-56 bg-background">
+        <section className="w-full py-24 md:py-40 lg:py-48 xl:py-64 bg-background">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
