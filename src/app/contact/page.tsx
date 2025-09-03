@@ -144,7 +144,7 @@ export default function ContactPage() {
                     </div>
                      <div className="flex items-center gap-4">
                         <Phone className="w-6 h-6 text-primary"/>
-                        <span>+1 (234) 567-890</span>
+                        <span>+57 321 833-1005</span>
                     </div>
                 </div>
             </div>
