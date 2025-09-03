@@ -6,12 +6,11 @@ import { useDictionary } from '@/hooks/use-dictionary';
 import ScrollAnimation from './ScrollAnimation';
 
 const brandLogos = [
-  { name: 'MSI', src: 'https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/msi-logo.png', width: 150, height: 80 },
-  { name: 'ASUS', src: 'https://dlcdnimgs.asus.com/images/logo/20230510092305.png', width: 150, height: 80 },
-  { name: 'Acer', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Acer_2011.svg/1024px-Acer_2011.svg.png', width: 150, height: 80 },
-  { name: 'Gigabyte', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Gigabyte_Technology_logo.svg/1280px-Gigabyte_Technology_logo.svg.png', width: 150, height: 80 },
-  { name: 'Nvidia', src: 'https://upload.wikimedia.org/wikipedia/fr/thumb/c/c6/Nvidia_logo.svg/1280px-Nvidia_logo.svg.png', width: 150, height: 80 },
-  { name: 'AMD', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/AMD_Logo.svg/1280px-AMD_Logo.svg.png', width: 150, height: 80 },
+  { name: 'MSI', src: '/msi.png', width: 150, height: 80 },
+  { name: 'ASUS', src: '/asus.png', width: 150, height: 80 },
+  { name: 'Acer', src: '/acer.png', width: 150, height: 80 },
+  { name: 'Nvidia', src: '/nvidia.png', width: 150, height: 80 },
+  { name: 'AMD', src: '/amd.png', width: 150, height: 80 },
 ];
 
 export default function Brands() {
@@ -34,7 +33,7 @@ export default function Brands() {
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
                     {brandLogos.map((brand) => (
                         <div key={brand.name} className="flex justify-center">
                             <Image
