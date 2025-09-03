@@ -13,6 +13,10 @@ export const products = [
       spec2: 'Libertad inalámbrica de 5.8 GHz',
       spec3: 'Micrófono de varilla volteable para silenciar',
       spec4: 'Batería de más de 15 horas de duración',
+      cpu: 'N/A',
+      gpu: 'N/A',
+      ram: 'N/A',
+      storage: 'N/A',
     },
   },
   {
@@ -28,6 +32,10 @@ export const products = [
       spec2: 'Ventiladores de radiador ROG optimizados',
       spec3: 'Iluminación Aura Sync RGB',
       spec4: 'Compatibilidad amplia con sockets Intel y AMD',
+      cpu: 'N/A',
+      gpu: 'N/A',
+      ram: 'N/A',
+      storage: 'N/A',
     },
   },
   {
@@ -43,6 +51,10 @@ export const products = [
       spec2: 'Tecnología inalámbrica LIGHTSPEED ultrarrápida',
       spec3: 'Diseño ligero y compacto de 99 gramos',
       spec4: '6 botones programables',
+      cpu: 'N/A',
+      gpu: 'N/A',
+      ram: 'N/A',
+      storage: 'N/A',
     },
   },
   {
@@ -58,6 +70,10 @@ export const products = [
       spec2: 'Múltiples núcleos y subprocesos para multitarea',
       spec3: 'Tecnología AMD StoreMI',
       spec4: 'Compatible con overclocking',
+      cpu: 'AMD Ryzen 5 5600X',
+      gpu: 'N/A',
+      ram: 'N/A',
+      storage: 'N/A',
     },
   },
 ];
@@ -92,10 +108,10 @@ export const blogPosts = [
         author: 'Julián',
         image: 'https://picsum.photos/1200/800',
         content: `
-          <p>La VRAM, o Video RAM, es uno de los componentes más discutidos y, a menudo, malinterpretados al elegir una tarjeta gráfica (GPU). Actúa como una memoria ultrarrápida dedicada exclusivamente a las tareas gráficas, almacenando texturas, shaders y otros datos que la GPU necesita para renderizar imágenes en tu pantalla. En 2024, con juegos cada vez más complejos y aplicaciones más demandantes, la pregunta es más relevante que nunca: ¿cuánta VRAM necesitas realmente?</p>
+          <p>La VRAM, o Video RAM, es uno de los componentes más discutidos y, a menudo, malinterpretados al elegir una tarjeta gráfica (GPU). Actúa como una memoria ultrarrápida dedicada exclusivamente a las tareas gráficas, almacenando texturas, shaders y otros datos que la GPU necesita para renderizar imágenes en tu pantalla. En 2024, con juegos cada vez más complejos y aplicaciones más demandantes, la pregunta es más relevante que nunca: ¿cuánta VRAM necesitas realmente? Para una explicación más detallada, puedes consultar <a href="https://www.techspot.com/article/2670-what-is-vram/" target="_blank" rel="noopener noreferrer">este excelente artículo de TechSpot</a>.</p>
           
           <h2>Para el Gaming: Más Allá de los Números</h2>
-          <p>La cantidad de VRAM necesaria para jugar depende en gran medida de tres factores: la resolución a la que juegas, la calidad de las texturas y si usas tecnologías como el Ray Tracing.</p>
+          <p>La cantidad de VRAM necesaria para jugar depende en gran medida de tres factores: la resolución a la que juegas, la calidad de las texturas y si usas tecnologías como el <a href="https://www.nvidia.com/es-la/geforce/technologies/ray-tracing/" target="_blank" rel="noopener noreferrer">Ray Tracing</a>.</p>
           <ul>
               <li><strong>1080p (Full HD):</strong> Para la mayoría de los títulos actuales en alta calidad, 8 GB de VRAM son un punto de partida sólido y cómodo. Te permitirá disfrutar de texturas de alta resolución sin experimentar "stuttering" o caídas de rendimiento.</li>
               <li><strong>1440p (QHD):</strong> A esta resolución, la demanda de VRAM aumenta. 12 GB se están convirtiendo en el nuevo estándar para una experiencia fluida y sin compromisos, especialmente en juegos AAA con texturas de ultra calidad.</li>
@@ -125,14 +141,14 @@ export const blogPosts = [
           <p>La elección de la CPU es una de las decisiones más críticas al construir un PC para gaming. Durante años, Intel y AMD han luchado ferozmente por la supremacía, y en 2024, la competencia está más reñida que nunca. Ambos gigantes ofrecen procesadores con un rendimiento excepcional, pero con arquitecturas y filosofías diferentes. ¿Quién se lleva la corona?</p>
           
           <h2>Intel: El Rey de la Velocidad de un Solo Núcleo</h2>
-          <p>Tradicionalmente, Intel ha destacado por su rendimiento superior en un solo núcleo. Esto es particularmente importante en muchos juegos que no aprovechan eficientemente múltiples núcleos. Con sus arquitecturas híbridas (P-cores y E-cores) en las últimas generaciones, Intel ofrece una combinación potente de velocidad para las tareas principales y eficiencia para las tareas en segundo plano.</p>
+          <p>Tradicionalmente, Intel ha destacado por su rendimiento superior en un solo núcleo. Esto es particularmente importante en muchos juegos que no aprovechan eficientemente múltiples núcleos. Con sus <a href="https://www.intel.la/content/www/xl/es/gaming/resources/performance-hybrid-architecture.html" target="_blank" rel="noopener noreferrer">arquitecturas híbridas (P-cores y E-cores)</a> en las últimas generaciones, Intel ofrece una combinación potente de velocidad para las tareas principales y eficiencia para las tareas en segundo plano.</p>
           <ul>
               <li><strong>Ventajas:</strong> Frecuencias de reloj más altas, liderazgo en rendimiento de un solo hilo, y una plataforma muy madura.</li>
               <li><strong>Ideal para:</strong> Gamers que buscan exprimir hasta el último fotograma por segundo (FPS) en títulos competitivos y juegos que dependen fuertemente de la velocidad de un solo núcleo.</li>
           </ul>
           
           <h2>AMD: El Campeón del Multitarea y la Eficiencia</h2>
-          <p>AMD, con su arquitectura Zen, revolucionó el mercado al ofrecer un mayor número de núcleos y subprocesos a precios competitivos. Su tecnología 3D V-Cache, presente en modelos como los Ryzen X3D, ha demostrado ser un cambio de juego para el gaming al aumentar drásticamente la caché L3, lo que reduce la latencia y mejora los FPS en muchos títulos.</p>
+          <p>AMD, con su arquitectura Zen, revolucionó el mercado al ofrecer un mayor número de núcleos y subprocesos a precios competitivos. Su tecnología <a href="https://www.amd.com/es/technologies/3d-v-cache.html" target="_blank" rel="noopener noreferrer">3D V-Cache</a>, presente en modelos como los Ryzen X3D, ha demostrado ser un cambio de juego para el gaming al aumentar drásticamente la caché L3, lo que reduce la latencia y mejora los FPS en muchos títulos.</p>
           <blockquote>"La tecnología 3D V-Cache de AMD ha posicionado a sus CPUs como una de las mejores opciones puramente para gaming, a menudo superando a la competencia en escenarios de juego reales."</blockquote>
           <p>Además, la eficiencia energética de los procesadores Ryzen suele ser superior, lo que se traduce en sistemas más frescos y silenciosos.</p>
            <ul>
@@ -169,7 +185,7 @@ export const blogPosts = [
               <li><strong>Diseño de flujo de aire optimizado:</strong> Permite que los ventiladores giren a velocidades más bajas sin sacrificar la refrigeración.</li>
               <li><strong>Construcción robusta:</strong> Acero grueso y pies de goma para minimizar la vibración estructural.</li>
           </ul>
-          <p>Marcas como Be Quiet!, Fractal Design y NZXT ofrecen excelentes opciones en esta categoría.</p>
+          <p>Marcas como <a href="https://www.bequiet.com/es/" target="_blank" rel="noopener noreferrer">Be Quiet!</a>, Fractal Design y NZXT ofrecen excelentes opciones en esta categoría.</p>
 
           <h2>2. Refrigeración: Aire vs. Líquida</h2>
           <p>La refrigeración es la principal fuente de ruido en un PC. La clave es la eficiencia: un sistema de refrigeración más eficiente puede mantener las temperaturas bajas con velocidades de ventilador más lentas.</p>
@@ -180,7 +196,7 @@ export const blogPosts = [
            <blockquote>"El secreto no es eliminar los ventiladores, sino permitirles hacer su trabajo a la velocidad más baja posible."</blockquote>
 
           <h2>3. Ventiladores y Curvas de Ventilación</h2>
-          <p>No todos los ventiladores son iguales. Invierte en ventiladores de alta calidad optimizados para la presión estática (para radiadores y disipadores) o para el flujo de aire (para el gabinete). Marcas como Noctua, Be Quiet! y Phanteks son líderes en este campo.</p>
+          <p>No todos los ventiladores son iguales. Invierte en ventiladores de alta calidad optimizados para la presión estática (para radiadores y disipadores) o para el flujo de aire (para el gabinete). Marcas como <a href="https://noctua.at/" target="_blank" rel="noopener noreferrer">Noctua</a>, Be Quiet! y Phanteks son líderes en este campo.</p>
           <p>Una vez instalados, es crucial configurar una <strong>curva de ventilación personalizada</strong> en la BIOS o mediante software. Ajusta los ventiladores para que permanezcan a bajas RPM (o incluso apagados) cuando la temperatura del sistema sea baja, y que solo aumenten de velocidad gradualmente bajo carga intensa.</p>
           
           <h2>4. La Fuente de Poder (PSU) y la GPU</h2>
