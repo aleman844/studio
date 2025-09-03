@@ -11,10 +11,8 @@ import { usePathname } from 'next/navigation';
 
 export default function LayoutClient({
   children,
-  lang,
 }: {
   children: ReactNode;
-  lang: string;
 }) {
   const [showIntro, setShowIntro] = useState(true);
   const pathname = usePathname();
@@ -33,10 +31,8 @@ export default function LayoutClient({
   }, []);
   
   useEffect(() => {
-    // Increment key on pathname change to re-trigger animation, but not for the first render
-    if (pathname) {
-      setAnimationKey(prevKey => prevKey + 1);
-    }
+    // Increment key on pathname change to re-trigger animation
+    setAnimationKey(prevKey => prevKey + 1);
   }, [pathname]);
 
   const handleIntroFinish = () => {
@@ -50,7 +46,7 @@ export default function LayoutClient({
         <IntroAnimation onFinish={handleIntroFinish} />
       ) : (
         <div className="relative flex min-h-screen flex-col">
-          <Header lang={lang} />
+          <Header />
           <main key={animationKey} className="flex-1 bg-background z-10 animate-fade-in">
             {children}
           </main>

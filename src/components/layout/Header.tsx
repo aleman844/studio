@@ -15,18 +15,20 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { useDictionary } from '@/hooks/use-dictionary';
 
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lang = pathname.split('/')[1] || 'es';
+  const dict = useDictionary()?.header;
 
   const navLinks = [
-    { href: '/', label: "Inicio" },
-    { href: '/products', label: "Productos" },
-    { href: '/about', label: "Nosotros" },
-    { href: '/blog', label: "Blog" },
-    { href: '/contact', label: "Contacto" },
+    { href: '/', label: dict?.home || 'Home' },
+    { href: '/products', label: dict?.products || 'Products' },
+    { href: '/about', label: dict?.about || 'About' },
+    { href: '/blog', label: dict?.blog || 'Blog' },
+    { href: '/contact', label: dict?.contact || 'Contact' },
   ];
 
   const NavLink = ({ href, label }: { href: string; label: string; }) => {
@@ -90,7 +92,7 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6">
+                <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6" onClick={() => setIsMobileMenuOpen(false)}>
                   <Icons.logo className="h-6 w-6 text-primary" />
                   <span className="font-bold">Gamers4Gamers</span>
                 </Link>
@@ -112,7 +114,7 @@ export default function Header() {
             <LanguageSwitcher />
             <Link href={`/${lang}/contact`}>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
-                Contáctanos
+                {dict?.contact_us || 'Contact Us'}
               </Button>
             </Link>
           </nav>

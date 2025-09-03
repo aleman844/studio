@@ -29,7 +29,7 @@ export default async function RootLayout({
       </head>
       <body className="font-body antialiased">
         <Providers dictionary={dictionary}>
-          <LayoutClient lang={params.lang}>
+          <LayoutClient>
             {children}
           </LayoutClient>
         </Providers>
