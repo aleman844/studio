@@ -162,14 +162,14 @@ body {
     background: linear-gradient(
       90deg, 
       hsl(var(--background)),
-      hsl(var(--primary) / 0.1),
-      hsl(var(--accent) / 0.15),
-      hsl(var(--primary) / 0.1),
+      hsl(var(--primary) / 0.2),
+      hsl(var(--accent) / 0.3),
+      hsl(var(--primary) / 0.2),
       hsl(var(--background))
     );
     background-size: 200% 200%;
     animation: brush-stroke 15s ease infinite;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   .animate-scale-in-out {
@@ -179,10 +179,10 @@ body {
     animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
   .animate-fade-out {
-    animation: fade-out 1s ease-out forwards;
+    animation: fade-out 1.5s ease-out forwards;
   }
   .animate-fade-in {
-    animation: fade-in 1s ease-out forwards;
+    animation: fade-in 1.5s ease-out forwards;
   }
   .animate-wobble-and-rotate {
     animation: wobble-and-rotate 4s ease-in-out;
