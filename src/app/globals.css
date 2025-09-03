@@ -132,6 +132,11 @@ body {
     100% { transform: rotate(0deg) translateX(0%); }
   }
 
+  @keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+  }
+
 
   .animate-brush-reveal::before {
     content: '';

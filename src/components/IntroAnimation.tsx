@@ -5,6 +5,42 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
+const Starfield = () => {
+  const [stars, setStars] = useState<React.CSSProperties[]>([]);
+
+  useEffect(() => {
+    const generateStars = () => {
+      const newStars = Array.from({ length: 150 }).map(() => {
+        const size = Math.random() * 2 + 1;
+        return {
+          position: 'absolute',
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: 'white',
+          borderRadius: '50%',
+          opacity: Math.random(),
+          animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate`,
+          animationDelay: `${Math.random() * 3}s`,
+        } as React.CSSProperties;
+      });
+      setStars(newStars);
+    };
+
+    generateStars();
+  }, []);
+
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      {stars.map((style, index) => (
+        <div key={index} style={style} />
+      ))}
+    </div>
+  );
+};
+
+
 export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
   const [isExiting, setIsExiting] = useState(false);
 
@@ -24,6 +60,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
         isExiting ? 'animate-fade-out' : ''
       )}
     >
+      <Starfield />
       <Image 
         src="/logo.svg" 
         alt="Gamers4Gamers Logo" 
