@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Icons } from '../icons';
+import Image from 'next/image';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link href={`/${lang}`} className="flex items-center space-x-2 mb-4">
-              <Icons.logo className="h-8 w-8 text-primary" />
+              <Image src="/logo-crab.svg" alt="Gamers4Gamers Logo" width={32} height={32} className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold">Gamers4Gamers</span>
             </Link>
             <p className="text-muted-foreground">
