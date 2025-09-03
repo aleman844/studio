@@ -69,7 +69,7 @@ export default function Header() {
   const Logo = ({ className }: { className?: string }) => (
     <Link href={`/${lang}`} className={cn("flex items-center space-x-2", className)} onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
       <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
-      <span className="hidden font-bold sm:inline-block">
+      <span className="font-bold">
         Gamers <span className="text-accent text-lg">4</span> Gamers
       </span>
     </Link>
