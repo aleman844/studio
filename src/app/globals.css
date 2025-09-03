@@ -28,7 +28,6 @@ body {
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
   }
 
   .dark {
@@ -125,20 +124,20 @@ body {
 
   @keyframes wobble-and-rotate {
     0% { transform: rotate(0deg) translateX(0%); }
-    10% { transform: rotate(-8deg) translateX(-3%); }
-    20% { transform: rotate(8deg) translateX(3%); }
-    30% { transform: rotate(-6deg) translateX(-2%); }
-    40% { transform: rotate(6deg) translateX(2%); }
+    10% { transform: rotate(-12deg) translateX(-5%); }
+    20% { transform: rotate(12deg) translateX(5%); }
+    30% { transform: rotate(-10deg) translateX(-4%); }
+    40% { transform: rotate(10deg) translateX(4%); }
     /* Start vibrating faster */
-    50% { transform: rotate(-4deg) translateX(-1%); }
-    55% { transform: rotate(4deg) translateX(1%); }
-    60% { transform: rotate(-2deg) translateX(-0.5%); }
-    65% { transform: rotate(2deg) translateX(0.5%); }
-    70% { transform: rotate(-1deg) translateX(-0.2%); }
-    75% { transform: rotate(1deg) translateX(0.2%); }
+    50% { transform: rotate(-6deg) translateX(-2%); }
+    55% { transform: rotate(6deg) translateX(2%); }
+    60% { transform: rotate(-4deg) translateX(-1%); }
+    65% { transform: rotate(4deg) translateX(1%); }
+    70% { transform: rotate(-2deg) translateX(-0.5%); }
+    75% { transform: rotate(2deg) translateX(0.5%); }
     /* Dampen to stop */
-    80% { transform: rotate(-0.5deg) translateX(0%); }
-    85% { transform: rotate(0.5deg) translateX(0%); }
+    80% { transform: rotate(-1deg) translateX(0%); }
+    85% { transform: rotate(1deg) translateX(0%); }
     90%, 100% { transform: rotate(0deg) translateX(0%); }
   }
 
