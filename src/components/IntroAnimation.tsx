@@ -43,7 +43,7 @@ const Starfield = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden" style={starfieldStyle}>
+    <div className="absolute inset-0 z-0 overflow-hidden transition-opacity duration-700" style={starfieldStyle}>
       {stars.map((style, index) => (
         <div key={index} style={style} />
       ))}
@@ -53,31 +53,43 @@ const Starfield = () => {
 
 
 export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
-  const [isExiting, setIsExiting] = useState(false);
+  const [phase, setPhase] = useState('wobble'); // wobble -> shrink -> finished
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsExiting(true);
-      setTimeout(onFinish, 500); // Wait for fade-out animation to complete
-    }, 4000); // Total duration of the intro screen
+    const wobbleTimer = setTimeout(() => {
+      setPhase('shrink');
+    }, 4000); // 4 seconds for wobble animation
 
-    return () => clearTimeout(timer);
+    const shrinkTimer = setTimeout(() => {
+      setPhase('finished');
+      onFinish();
+    }, 4800); // 4s + 0.8s for shrink animation
+
+    return () => {
+      clearTimeout(wobbleTimer);
+      clearTimeout(shrinkTimer);
+    };
   }, [onFinish]);
 
   return (
     <div
       className={cn(
-        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-500 animate-brush-reveal',
-        isExiting ? 'animate-fade-out' : ''
+        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-700',
+        phase === 'shrink' && 'opacity-0'
       )}
     >
+      <div className="absolute inset-0 animate-brush-reveal" />
       <Starfield />
       <Image 
         src="/logo.svg" 
         alt="Gamers4Gamers Logo" 
         width={384} 
         height={384} 
-        className="h-96 w-96 text-primary animate-wobble-and-rotate"
+        className={cn(
+            "h-96 w-96 text-primary",
+            phase === 'wobble' && 'animate-wobble-and-rotate',
+            phase === 'shrink' && 'animate-shrink-to-header'
+        )}
       />
     </div>
   );

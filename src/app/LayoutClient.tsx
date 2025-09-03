@@ -8,25 +8,21 @@ import Footer from '@/components/layout/Footer';
 import IntroAnimation from '@/components/IntroAnimation';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export default function LayoutClient({
   children,
 }: {
   children: ReactNode;
 }) {
-  const [showIntro, setShowIntro] = useState(true);
+  const [introState, setIntroState] = useState('showing'); // showing -> finished
   const pathname = usePathname();
   const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
     if (hasSeenIntro) {
-      setShowIntro(false);
-    } else {
-      const timer = setTimeout(() => {
-        sessionStorage.setItem('hasSeenIntro', 'true');
-      }, 5500); // Give a bit more time than the animation
-      return () => clearTimeout(timer);
+      setIntroState('finished');
     }
   }, []);
   
@@ -36,25 +32,30 @@ export default function LayoutClient({
   }, [pathname]);
 
   const handleIntroFinish = () => {
-    setShowIntro(false);
+    setIntroState('finished');
     sessionStorage.setItem('hasSeenIntro', 'true');
   };
 
+  const isIntroFinished = introState === 'finished';
+
   return (
     <>
-      {showIntro ? (
+      {introState === 'showing' ? (
         <IntroAnimation onFinish={handleIntroFinish} />
-      ) : (
-        <div className="relative flex min-h-screen flex-col animate-fade-in">
-          <Header />
-          <main key={animationKey} className="flex-1 bg-background z-10">
-            {children}
-          </main>
-          <ScrollAnimation>
-            <Footer />
-          </ScrollAnimation>
-        </div>
-      )}
+      ) : null}
+
+      <div className={cn(
+        "relative flex min-h-screen flex-col",
+        isIntroFinished ? 'animate-fade-in' : 'opacity-0'
+      )}>
+        <Header hideLogo={!isIntroFinished} />
+        <main key={animationKey} className="flex-1 bg-background z-10">
+          {children}
+        </main>
+        <ScrollAnimation>
+          <Footer />
+        </ScrollAnimation>
+      </div>
       <Toaster />
     </>
   );

@@ -151,6 +151,18 @@ body {
     to { transform: translate(var(--star-dx, -20px), var(--star-dy, -20px)); }
   }
 
+  @keyframes shrink-to-header {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      /* Approximate top-left position. Fine-tune if needed. */
+      transform: translate(calc(-50vw + 40px), calc(-50vh + 40px)) scale(0.08);
+      opacity: 0;
+    }
+  }
+
 
   .animate-brush-reveal::before {
     content: '';
@@ -187,5 +199,8 @@ body {
   }
   .animate-wobble-and-rotate {
     animation: wobble-and-rotate 4s ease-in-out;
+  }
+  .animate-shrink-to-header {
+    animation: shrink-to-header 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 }

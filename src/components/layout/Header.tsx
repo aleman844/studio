@@ -16,7 +16,11 @@ import {
 import { cn } from '@/lib/utils';
 import { useDictionary } from '@/hooks/use-dictionary';
 
-export default function Header() {
+interface HeaderProps {
+  hideLogo?: boolean;
+}
+
+export default function Header({ hideLogo = false }: HeaderProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lang = pathname.split('/')[1] || 'es';
@@ -66,16 +70,20 @@ export default function Header() {
     </DropdownMenu>
   );
 
+  const Logo = ({ className }: { className?: string }) => (
+    <Link href={`/${lang}`} className={cn("flex items-center space-x-2", className)} onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
+      <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
+      <span className="hidden font-bold sm:inline-block">
+        Gamers <span className="text-accent text-lg">4</span> Gamers
+      </span>
+    </Link>
+  );
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-            <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
-            <span className="hidden font-bold sm:inline-block">
-              Gamers <span className="text-accent text-lg">4</span> Gamers
-            </span>
-          </Link>
+          <Logo className={cn("mr-6", hideLogo && "opacity-0")} />
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
@@ -93,12 +101,7 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
-                  <span className="font-bold">
-                    Gamers <span className="text-accent text-lg">4</span> Gamers
-                  </span>
-                </Link>
+                <Logo className="mb-6" />
                 <div className="flex flex-col space-y-4 px-4">
                   {navLinks.map((link) => (
                      <NavLink key={link.href} href={link.href} label={link.label} />
@@ -107,13 +110,10 @@ export default function Header() {
               </SheetContent>
             </Sheet>
           </div>
-
-          <Link href={`/${lang}`} className="flex items-center space-x-2 md:hidden">
-            <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
-            <span className="font-bold">
-              Gamers <span className="text-accent text-lg">4</span> Gamers
-            </span>
-          </Link>
+          
+          <div className={cn("md:hidden", hideLogo && "opacity-0")}>
+            <Logo />
+          </div>
 
           <nav className="flex items-center gap-2">
             <LanguageSwitcher />
