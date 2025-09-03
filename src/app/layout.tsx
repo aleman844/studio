@@ -1,21 +1,25 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { getDictionary } from '@/lib/dictionaries';
+import { DictionaryProvider } from '@/contexts/DictionaryContext';
 
 export const metadata: Metadata = {
   title: 'Gamers4Gamers',
   description: 'Specialized PC solutions, parts, and technical services.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: string };
 }>) {
+  const dictionary = await getDictionary(params.lang);
   return (
     <html lang={params.lang ?? 'en'} className="dark">
       <head>
@@ -27,12 +31,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <Header lang={params.lang} />
-          <main className="flex-1">{children}</main>
-          <Footer lang={params.lang} />
-        </div>
-        <Toaster />
+        <DictionaryProvider dictionary={dictionary}>
+          <div className="relative flex min-h-screen flex-col">
+            <Header lang={params.lang} />
+            <main className="flex-1">{children}</main>
+            <Footer lang={params.lang} />
+          </div>
+          <Toaster />
+        </DictionaryProvider>
       </body>
     </html>
   );

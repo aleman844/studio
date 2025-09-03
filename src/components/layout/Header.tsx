@@ -1,27 +1,20 @@
+
 "use client";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import { getDictionary } from '@/lib/dictionaries';
+import { useDictionary } from '@/contexts/DictionaryContext';
 
 export default function Header({ lang }: { lang: string }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [dict, setDict] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchDict = async () => {
-      const d = await getDictionary(lang);
-      setDict(d.header);
-    };
-    fetchDict();
-  }, [lang]);
+  const dict = useDictionary().header;
 
   if (!dict) return null; // Or a loading skeleton
 
