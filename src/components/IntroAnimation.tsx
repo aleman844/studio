@@ -71,7 +71,6 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
         isFinished && 'animate-fade-out'
       )}
     >
-      <div className="absolute inset-0 animate-brush-reveal" />
       <Starfield />
       <Image 
         src="/logo.svg" 
