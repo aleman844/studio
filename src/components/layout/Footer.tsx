@@ -42,8 +42,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link href={`/${lang}`} className="flex items-center space-x-2 mb-4">
-              <Image src="/logo-crab.svg" alt="Gamers4Gamers Logo" width={32} height={32} className="h-8 w-8" />
-              <span className="text-xl font-bold">G<span className="text-accent text-2xl">4</span>G</span>
+              <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={32} height={32} className="h-8 w-8" />
+              <span className="text-xl font-bold">Gamers4Gamers</span>
             </Link>
             <p className="text-muted-foreground">
               {dict.tagline}
