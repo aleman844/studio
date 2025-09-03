@@ -1,10 +1,27 @@
+
+"use client";
+
 import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
-import { getDictionary } from '@/lib/dictionaries';
+import { useDictionary } from '@/contexts/DictionaryContext';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default async function Footer({ lang }: { lang: string }) {
-  const dict = await getDictionary(lang);
+export default function Footer() {
+  const dict = useDictionary();
+  const pathname = usePathname();
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    if (pathname) {
+      const segments = pathname.split('/');
+      setLang(segments[1] || 'en');
+    }
+  }, [pathname]);
+
+  if (!dict) return null;
+
   const footerDict = dict.footer;
 
   return (
