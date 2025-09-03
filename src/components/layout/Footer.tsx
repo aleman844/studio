@@ -43,7 +43,9 @@ export default function Footer() {
           <div>
             <Link href={`/${lang}`} className="flex items-center space-x-2 mb-4">
               <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={32} height={32} className="h-8 w-8" />
-              <span className="text-xl font-bold">Gamers4Gamers</span>
+              <span className="text-xl font-bold">
+                Gamers <span className="text-accent text-2xl">4</span> Gamers
+              </span>
             </Link>
             <p className="text-muted-foreground">
               {dict.tagline}
