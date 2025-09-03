@@ -71,7 +71,7 @@ export default function Header() {
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-            <Image src="/logo-crab.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
+            <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">Gamers4Gamers</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -92,7 +92,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
                 <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Image src="/logo-crab.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
+                  <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
                   <span className="font-bold">Gamers4Gamers</span>
                 </Link>
                 <div className="flex flex-col space-y-4 px-4">
@@ -105,7 +105,7 @@ export default function Header() {
           </div>
 
           <Link href={`/${lang}`} className="flex items-center space-x-2 md:hidden">
-            <Image src="/logo-crab.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
+            <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6 text-primary" />
             <span className="font-bold">Gamers4Gamers</span>
           </Link>
 
