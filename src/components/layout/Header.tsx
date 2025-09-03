@@ -70,7 +70,7 @@ export default function Header() {
     <Link href={`/${lang}`} className={cn("flex items-center space-x-2", className)} onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
       <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={24} height={24} className="h-6 w-6" />
       <span className="font-bold">
-        Gamers <span className="text-accent text-xl inline-block rotate-12">4</span> Gamers
+        Gamers <span className="text-accent text-xl inline-block -rotate-12">4</span> Gamers
       </span>
     </Link>
   );

@@ -37,14 +37,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden w-full border-t border-border/40 bg-card text-card-foreground animate-brush-reveal">
+    <footer className="relative overflow-hidden w-full border-t border-border/40 bg-card text-card-foreground">
       <div className="container relative z-10 mx-auto py-8 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link href={`/${lang}`} className="flex items-center space-x-2 mb-4">
               <Image src="/logo.svg" alt="Gamers4Gamers Logo" width={32} height={32} className="h-8 w-8" />
               <span className="text-xl font-bold">
-                Gamers <span className="text-accent text-2xl inline-block rotate-12">4</span> Gamers
+                Gamers <span className="text-accent text-2xl inline-block -rotate-12">4</span> Gamers
               </span>
             </Link>
             <p className="text-muted-foreground">
