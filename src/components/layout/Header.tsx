@@ -27,11 +27,6 @@ export default function Header() {
     { href: '/blog', label: "Blog" },
     { href: '/contact', label: "Contacto" },
   ];
-  
-  const toolLinks = [
-    { href: '/tools/seo', label: "Optimizador SEO" },
-    { href: '/tools/article-generator', label: "Generador de Artículos" },
-  ]
 
   const NavLink = ({ href, label }: { href: string; label: string; }) => {
     const isActive = pathname === href;
@@ -48,23 +43,6 @@ export default function Header() {
       </Link>
     );
   };
-  
-  const ToolsDropdown = () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className={cn("text-sm font-medium transition-colors hover:text-primary px-0", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>
-          Herramientas
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {toolLinks.map(link => (
-          <DropdownMenuItem key={link.href} asChild>
-            <Link href={link.href}>{link.label}</Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
 
   const LanguageSwitcher = () => (
     <DropdownMenu>
@@ -97,7 +75,6 @@ export default function Header() {
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
-            <ToolsDropdown />
           </nav>
         </div>
 
@@ -119,12 +96,6 @@ export default function Header() {
                   {navLinks.map((link) => (
                      <NavLink key={link.href} href={link.href} label={link.label} />
                   ))}
-                  <div className="pt-2">
-                     <h4 className="font-medium mb-2 text-muted-foreground">Herramientas</h4>
-                     <div className='flex flex-col space-y-4'>
-                       {toolLinks.map(sublink => <NavLink key={sublink.href} href={sublink.href} label={sublink.label} />)}
-                     </div>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
