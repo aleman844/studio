@@ -67,7 +67,7 @@ export const teamMembers = [
     name: 'Julián',
     role: 'Ingeniero Especialista',
     bio: 'Julián es el cerebro detrás de nuestros ensambles más complejos, asegurando rendimiento y estabilidad.',
-    image: '/A11.png',
+    image: '/A1.png',
   },
   {
     name: 'Jhon',
