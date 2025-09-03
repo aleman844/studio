@@ -12,6 +12,7 @@ const Starfield = () => {
     const generateStars = () => {
       const newStars = Array.from({ length: 150 }).map(() => {
         const size = Math.random() * 2 + 1;
+        const duration = Math.random() * 50 + 40; // Slower duration
         return {
           position: 'absolute',
           top: `${Math.random() * 100}%`,
@@ -21,7 +22,7 @@ const Starfield = () => {
           backgroundColor: 'white',
           borderRadius: '50%',
           opacity: Math.random(),
-          animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate`,
+          animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate, move-stars ${duration}s linear infinite`,
           animationDelay: `${Math.random() * 3}s`,
         } as React.CSSProperties;
       });
