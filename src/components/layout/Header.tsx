@@ -19,14 +19,13 @@ import { useDictionary } from '@/contexts/DictionaryContext';
 
 export default function Header() {
   const pathname = usePathname();
+  const dict = useDictionary()?.header;
   const [lang, setLang] = useState('en');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const dict = useDictionary().header;
 
   useEffect(() => {
     if (pathname) {
       const segments = pathname.split('/');
-      // Assuming the language is the first segment, e.g., /en/products
       setLang(segments[1] || 'en');
     }
   }, [pathname]);
@@ -48,7 +47,7 @@ export default function Header() {
       ],
     },
   ];
-
+  
   const redirectedPathName = (locale: string) => {
     if (!pathname) return '/';
     const segments = pathname.split('/');
@@ -57,7 +56,6 @@ export default function Header() {
   };
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
-    // Exact match for home, startsWith for others
     const isActive = href === `/${lang}/` ? pathname === href : pathname.startsWith(href);
     return (
       <Link
@@ -72,6 +70,24 @@ export default function Header() {
       </Link>
     );
   };
+  
+    const ToolsDropdown = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className={cn("text-sm font-medium transition-colors hover:text-primary px-0", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>
+          {dict.tools}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+          <Link href={`/${lang}/tools/seo`}>{dict.seo_optimizer}</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href={`/${lang}/tools/article-generator`}>{dict.article_generator}</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 
   const LanguageSwitcher = () => (
     <DropdownMenu>
@@ -104,7 +120,7 @@ export default function Header() {
             {navLinks.filter(l => !l.subLinks).map((link) => (
               <NavLink key={link.href} {...link} />
             ))}
-             <Link href={`/${lang}/tools/seo`} className={cn("text-sm font-medium transition-colors hover:text-primary", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>{dict.tools}</Link>
+            <ToolsDropdown />
           </nav>
         </div>
 
