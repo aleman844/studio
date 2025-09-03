@@ -40,7 +40,7 @@ export default function Brands() {
                                 alt={`${brand.name} logo`}
                                 width={brand.width}
                                 height={brand.height}
-                                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
                             />
                         </div>
                     ))}
