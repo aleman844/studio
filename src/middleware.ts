@@ -5,6 +5,11 @@ export let defaultLocale = 'es';
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Si la ruta es al logo, no hagas nada
+  if (pathname.startsWith('/logo-crab.svg')) {
+    return NextResponse.next();
+  }
   
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -21,6 +26,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next) and static files with extensions
-    '/((?!api|_next/static|_next/image|assets|favicon.ico|logo-crab.svg|sw.js).*)',
+    '/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)',
   ],
 };
