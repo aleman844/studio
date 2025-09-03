@@ -4,8 +4,6 @@
 import Image from 'next/image';
 import { useDictionary } from '@/hooks/use-dictionary';
 import ScrollAnimation from './ScrollAnimation';
-import { Link2 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 const brandLogos = [
   { name: 'MSI', src: '/msi.png', width: 150, height: 80 },
@@ -42,7 +40,7 @@ export default function Brands() {
                                 alt={`${brand.name} logo`}
                                 width={brand.width}
                                 height={brand.height}
-                                className="object-contain filter grayscale"
+                                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                             />
                         </div>
                     ))}
