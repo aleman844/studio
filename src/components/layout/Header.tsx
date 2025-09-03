@@ -31,7 +31,7 @@ export default function Header({ lang }: { lang: string }) {
     { href: `/${lang}/blog`, label: dict.blog },
     { href: `/${lang}/contact`, label: dict.contact },
     {
-      href: '/tools',
+      href: `/${lang}/tools`,
       label: dict.tools,
       subLinks: [
         { href: `/${lang}/tools/seo`, label: dict.seo_optimizer },
