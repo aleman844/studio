@@ -43,7 +43,7 @@ const Starfield = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden transition-opacity duration-700" style={starfieldStyle}>
+    <div className="absolute inset-0 z-0 overflow-hidden" style={starfieldStyle}>
       {stars.map((style, index) => (
         <div key={index} style={style} />
       ))}
@@ -53,29 +53,22 @@ const Starfield = () => {
 
 
 export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
-  const [phase, setPhase] = useState('wobble'); // wobble -> shrink -> finished
+  const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    const wobbleTimer = setTimeout(() => {
-      setPhase('shrink');
-    }, 4000); // 4 seconds for wobble animation
-
-    const shrinkTimer = setTimeout(() => {
-      setPhase('finished');
+    const timer = setTimeout(() => {
+      setIsFinished(true);
       onFinish();
-    }, 4800); // 4s + 0.8s for shrink animation
+    }, 4000); // Animation duration
 
-    return () => {
-      clearTimeout(wobbleTimer);
-      clearTimeout(shrinkTimer);
-    };
+    return () => clearTimeout(timer);
   }, [onFinish]);
 
   return (
     <div
       className={cn(
-        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-700',
-        phase === 'shrink' && 'opacity-0'
+        'fixed inset-0 z-[100] flex items-center justify-center bg-background',
+        isFinished && 'animate-fade-out'
       )}
     >
       <div className="absolute inset-0 animate-brush-reveal" />
@@ -85,11 +78,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
         alt="Gamers4Gamers Logo" 
         width={384} 
         height={384} 
-        className={cn(
-            "h-96 w-96 text-primary",
-            phase === 'wobble' && 'animate-wobble-and-rotate',
-            phase === 'shrink' && 'animate-shrink-to-header'
-        )}
+        className="h-96 w-96 text-primary animate-wobble-and-rotate"
       />
     </div>
   );

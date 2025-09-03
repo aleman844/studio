@@ -15,14 +15,14 @@ export default function LayoutClient({
 }: {
   children: ReactNode;
 }) {
-  const [introState, setIntroState] = useState('showing'); // showing -> finished
+  const [showIntro, setShowIntro] = useState(true);
   const pathname = usePathname();
   const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
     if (hasSeenIntro) {
-      setIntroState('finished');
+      setShowIntro(false);
     }
   }, []);
   
@@ -32,23 +32,21 @@ export default function LayoutClient({
   }, [pathname]);
 
   const handleIntroFinish = () => {
-    setIntroState('finished');
+    setShowIntro(false);
     sessionStorage.setItem('hasSeenIntro', 'true');
   };
 
-  const isIntroFinished = introState === 'finished';
-
   return (
     <>
-      {introState === 'showing' ? (
+      {showIntro ? (
         <IntroAnimation onFinish={handleIntroFinish} />
       ) : null}
 
       <div className={cn(
         "relative flex min-h-screen flex-col",
-        isIntroFinished ? 'animate-fade-in' : 'opacity-0'
+        !showIntro && 'animate-fade-in'
       )}>
-        <Header hideLogo={!isIntroFinished} />
+        <Header />
         <main key={animationKey} className="flex-1 bg-background z-10">
           {children}
         </main>

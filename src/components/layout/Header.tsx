@@ -16,11 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 import { useDictionary } from '@/hooks/use-dictionary';
 
-interface HeaderProps {
-  hideLogo?: boolean;
-}
-
-export default function Header({ hideLogo = false }: HeaderProps) {
+export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lang = pathname.split('/')[1] || 'es';
@@ -83,7 +79,7 @@ export default function Header({ hideLogo = false }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
-          <Logo className={cn("mr-6", hideLogo && "opacity-0")} />
+          <Logo className="mr-6" />
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
@@ -111,7 +107,7 @@ export default function Header({ hideLogo = false }: HeaderProps) {
             </Sheet>
           </div>
           
-          <div className={cn("md:hidden", hideLogo && "opacity-0")}>
+          <div className="md:hidden">
             <Logo />
           </div>
 
