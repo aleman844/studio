@@ -72,7 +72,7 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-card p-6 rounded-lg text-center transform transition-transform duration-300 hover:scale-105">
-              <Avatar className="w-24 h-24 mx-auto mb-4 border-4 border-primary">
+              <Avatar className="w-20 h-20 mx-auto mb-4 border-4 border-primary">
                 <AvatarImage src={member.image} alt={`Portrait of ${member.name}, ${member.role}`} data-ai-hint="portrait professional" />
                 <AvatarFallback>{member.name.substring(0, 2)}</AvatarFallback>
               </Avatar>

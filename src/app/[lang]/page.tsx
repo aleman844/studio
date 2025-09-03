@@ -131,7 +131,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
               <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-8 pt-8">
                 {teamMembers.map((member) => (
                   <div key={member.name} className="flex flex-col items-center space-y-2">
-                    <Avatar className="w-24 h-24">
+                    <Avatar className="w-20 h-20">
                       <AvatarImage src={member.image} alt={`Portrait of ${member.name}, ${member.role}`} data-ai-hint="portrait professional" />
                       <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                     </Avatar>
