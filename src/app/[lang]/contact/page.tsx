@@ -86,7 +86,7 @@ export default function ContactPage() {
                   <FormItem>
                     <FormLabel>{dict.full_name}</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder={dict.placeholder_name} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   <FormItem>
                     <FormLabel>{dict.email_label}</FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input placeholder={dict.placeholder_email} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   <FormItem>
                     <FormLabel>{dict.subject}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Custom Build Inquiry" {...field} />
+                      <Input placeholder={dict.placeholder_subject} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   <FormItem>
                     <FormLabel>{dict.message}</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Tell us how we can help..." className="min-h-[120px]" {...field} />
+                      <Textarea placeholder={dict.placeholder_message} className="min-h-[120px]" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -173,3 +173,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+    

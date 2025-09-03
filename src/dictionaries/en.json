@@ -95,6 +95,12 @@
         "our_location": "Our Location",
         "map_placeholder": "Google Map Placeholder",
         "toast_title": "Message Sent!",
-        "toast_description": "Thanks for reaching out. We'll get back to you shortly."
+        "toast_description": "Thanks for reaching out. We'll get back to you shortly.",
+        "placeholder_name": "John Doe",
+        "placeholder_email": "you@example.com",
+        "placeholder_subject": "Custom Build Inquiry",
+        "placeholder_message": "Tell us how we can help..."
     }
 }
+
+    

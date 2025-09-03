@@ -95,6 +95,12 @@
         "our_location": "Nuestra Ubicación",
         "map_placeholder": "Marcador de Google Maps",
         "toast_title": "¡Mensaje Enviado!",
-        "toast_description": "Gracias por contactarnos. Te responderemos en breve."
+        "toast_description": "Gracias por contactarnos. Te responderemos en breve.",
+        "placeholder_name": "Juan Pérez",
+        "placeholder_email": "tu@ejemplo.com",
+        "placeholder_subject": "Consulta sobre equipo personalizado",
+        "placeholder_message": "Cuéntanos cómo podemos ayudarte..."
     }
 }
+
+    
