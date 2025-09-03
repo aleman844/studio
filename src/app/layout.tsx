@@ -35,7 +35,7 @@ export default async function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <Header lang={params.lang} />
             <main className="flex-1">{children}</main>
-            <Footer lang={params.lang} />
+            <Footer />
           </div>
           <Toaster />
         </Providers>

@@ -5,10 +5,13 @@ import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
 import { useDictionary } from '@/hooks/use-dictionary';
+import { usePathname } from 'next/navigation';
 
-export default function Footer({ lang }: { lang: string }) {
+export default function Footer() {
   const dict = useDictionary();
   const footerDict = dict.footer;
+  const pathname = usePathname();
+  const lang = pathname.split('/')[1] || 'es';
 
   if (!footerDict) return null;
 

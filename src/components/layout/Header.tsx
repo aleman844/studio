@@ -26,17 +26,17 @@ export default function Header({ lang }: { lang: string }) {
   if (!headerDict) return null; // Or a loading skeleton
 
   const navLinks = [
-    { href: `/${lang}/`, label: headerDict.home },
-    { href: `/${lang}/products`, label: headerDict.products },
-    { href: `/${lang}/about`, label: headerDict.about },
-    { href: `/${lang}/blog`, label: headerDict.blog },
-    { href: `/${lang}/contact`, label: headerDict.contact },
+    { href: `/`, label: headerDict.home },
+    { href: `/products`, label: headerDict.products },
+    { href: `/about`, label: headerDict.about },
+    { href: `/blog`, label: headerDict.blog },
+    { href: `/contact`, label: headerDict.contact },
     {
-      href: `/${lang}/tools`,
+      href: `/tools`,
       label: headerDict.tools,
       subLinks: [
-        { href: `/${lang}/tools/seo`, label: headerDict.seo_optimizer },
-        { href: `/${lang}/tools/article-generator`, label: headerDict.article_generator },
+        { href: `/tools/seo`, label: headerDict.seo_optimizer },
+        { href: `/tools/article-generator`, label: headerDict.article_generator },
       ],
     },
   ];
@@ -49,10 +49,11 @@ export default function Header({ lang }: { lang: string }) {
   };
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
-    const isActive = href === `/${lang}/` ? pathname === href : pathname.startsWith(href);
+    const fullPath = `/${lang}${href === '/' ? '' : href}`;
+    const isActive = href === `/` ? pathname === `/${lang}` : pathname.startsWith(fullPath);
     return (
       <Link
-        href={href}
+        href={fullPath}
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
           isActive ? "text-primary" : "text-muted-foreground"
@@ -111,7 +112,7 @@ export default function Header({ lang }: { lang: string }) {
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.filter(l => !l.subLinks).map((link) => (
-              <NavLink key={link.href} {...link} />
+              <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
             <ToolsDropdown />
           </nav>
@@ -137,13 +138,13 @@ export default function Header({ lang }: { lang: string }) {
                       <div key={link.href} className='px-4'>
                         <h4 className="font-medium py-2">{link.label}</h4>
                         <div className='flex flex-col space-y-4 ml-4'>
-                          {link.subLinks.map(sublink => <NavLink key={sublink.href} {...sublink} />)}
+                          {link.subLinks.map(sublink => <NavLink key={sublink.href} href={sublink.href} label={sublink.label} />)}
                         </div>
                       </div>
                     ) :
                       (
                         <div key={link.href} className='px-4'>
-                          <NavLink {...link} />
+                           <NavLink href={link.href} label={link.label} />
                         </div>
                       )
                   ))}
