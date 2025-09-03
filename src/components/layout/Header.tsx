@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Languages, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
@@ -76,8 +76,8 @@ export default function Header() {
   const LanguageSwitcher = () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Languages className="h-5 w-5" />
+        <Button variant="ghost" className="px-2">
+          <span className="font-medium uppercase">{lang}</span>
           <span className="sr-only">{dict.language_switcher}</span>
         </Button>
       </DropdownMenuTrigger>
