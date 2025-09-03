@@ -159,8 +159,17 @@ export default function ContactPage() {
             </div>
             <div>
                 <h2 className="text-2xl font-bold mb-4">Our Location</h2>
-                <div className="aspect-video w-full bg-card rounded-lg flex items-center justify-center">
-                    <p className="text-muted-foreground">Google Map Placeholder</p>
+                <div className="aspect-video w-full bg-card rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.339622998858!2d-75.57832282494101!3d6.219159393769185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44283282b5352d%3A0x241285265b9386a!2sCentro%20Comercial%20Monterrey!5e0!3m2!1sen!2sco!4v1718824151288!5m2!1sen!2sco"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Ubicación de Gamers4Gamers"
+                  ></iframe>
                 </div>
             </div>
         </div>
