@@ -53,7 +53,7 @@ export default function Header({ lang }: { lang: string }) {
     return segments.join('/');
   };
 
-  const NavLink = ({ href, label }: { href: string; label: string }) => {
+  const NavLink = ({ href, label, lang }: { href: string; label: string; lang: string }) => {
     const fullPath = `/${lang}${href === '/' ? '' : href}`;
     const isActive = href === `/` ? pathname === `/${lang}` : pathname.startsWith(fullPath);
     return (
@@ -92,7 +92,7 @@ export default function Header({ lang }: { lang: string }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="px-2">
-          <span className="font-medium uppercase">{lang}</span>
+          <span className="font-medium uppercase">{lang === 'en' ? 'En' : 'Es'}</span>
           <span className="sr-only">{headerDict.language_switcher}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -117,7 +117,7 @@ export default function Header({ lang }: { lang: string }) {
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.filter(l => !l.subLinks).map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <NavLink key={link.href} href={link.href} label={link.label} lang={lang} />
             ))}
             <ToolsDropdown />
           </nav>
@@ -143,13 +143,13 @@ export default function Header({ lang }: { lang: string }) {
                       <div key={link.href} className='px-4'>
                         <h4 className="font-medium py-2">{link.label}</h4>
                         <div className='flex flex-col space-y-4 ml-4'>
-                          {link.subLinks.map(sublink => <NavLink key={sublink.href} href={sublink.href} label={sublink.label} />)}
+                          {link.subLinks.map(sublink => <NavLink key={sublink.href} href={sublink.href} label={sublink.label} lang={lang} />)}
                         </div>
                       </div>
                     ) :
                       (
                         <div key={link.href} className='px-4'>
-                           <NavLink href={link.href} label={link.label} />
+                           <NavLink href={link.href} label={link.label} lang={lang} />
                         </div>
                       )
                   ))}
