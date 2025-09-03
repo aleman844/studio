@@ -25,20 +25,20 @@ export default function Footer() {
               <span className="text-xl font-bold">Gamers4Gamers</span>
             </Link>
             <p className="text-muted-foreground">
-              {footerDict.tagline}
+              Creando PCs de alto rendimiento para gaming y uso profesional.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">{footerDict.quick_links}</h3>
+            <h3 className="font-semibold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              <li><Link href={`/${lang}/about`} className="text-muted-foreground hover:text-primary transition-colors">{footerDict.about_us}</Link></li>
-              <li><Link href={`/${lang}/products`} className="text-muted-foreground hover:text-primary transition-colors">{footerDict.products}</Link></li>
-              <li><Link href={`/${lang}/contact`} className="text-muted-foreground hover:text-primary transition-colors">{footerDict.contact}</Link></li>
-              <li><Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-primary transition-colors">{footerDict.blog}</Link></li>
+              <li><Link href={`/${lang}/about`} className="text-muted-foreground hover:text-primary transition-colors">Sobre Nosotros</Link></li>
+              <li><Link href={`/${lang}/products`} className="text-muted-foreground hover:text-primary transition-colors">Productos</Link></li>
+              <li><Link href={`/${lang}/contact`} className="text-muted-foreground hover:text-primary transition-colors">Contacto</Link></li>
+              <li><Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">{footerDict.connect_with_us}</h3>
+            <h3 className="font-semibold mb-4">Conecta con Nosotros</h3>
             <div className="flex space-x-4 mb-4">
               <Link href="#" aria-label="Twitter">
                 <Twitter className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
@@ -50,12 +50,12 @@ export default function Footer() {
                 <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
               </Link>
             </div>
-            <p className="text-muted-foreground text-sm">{footerDict.address}</p>
-            <p className="text-muted-foreground text-sm">{footerDict.email}</p>
+            <p className="text-muted-foreground text-sm">123 Gaming Lane, Tech City, 12345</p>
+            <p className="text-muted-foreground text-sm">contacto@gamers4gamers.com</p>
           </div>
         </div>
         <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>{footerDict.copyright.replace('{year}', new Date().getFullYear())}</p>
+          <p>&#169; {new Date().getFullYear()} Gamers4Gamers. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

@@ -21,16 +21,16 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: "Home" },
-    { href: '/products', label: "Products" },
-    { href: '/about', label: "About" },
+    { href: '/', label: "Inicio" },
+    { href: '/products', label: "Productos" },
+    { href: '/about', label: "Nosotros" },
     { href: '/blog', label: "Blog" },
-    { href: '/contact', label: "Contact" },
+    { href: '/contact', label: "Contacto" },
   ];
   
   const toolLinks = [
-    { href: '/tools/seo', label: "SEO Optimizer" },
-    { href: '/tools/article-generator', label: "Article Generator" },
+    { href: '/tools/seo', label: "Optimizador SEO" },
+    { href: '/tools/article-generator', label: "Generador de Artículos" },
   ]
 
   const NavLink = ({ href, label }: { href: string; label: string; }) => {
@@ -53,7 +53,7 @@ export default function Header() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className={cn("text-sm font-medium transition-colors hover:text-primary px-0", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>
-          Tools
+          Herramientas
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -120,7 +120,7 @@ export default function Header() {
                      <NavLink key={link.href} href={link.href} label={link.label} />
                   ))}
                   <div className="pt-2">
-                     <h4 className="font-medium mb-2 text-muted-foreground">Tools</h4>
+                     <h4 className="font-medium mb-2 text-muted-foreground">Herramientas</h4>
                      <div className='flex flex-col space-y-4'>
                        {toolLinks.map(sublink => <NavLink key={sublink.href} href={sublink.href} label={sublink.label} />)}
                      </div>
@@ -139,7 +139,7 @@ export default function Header() {
             <LanguageSwitcher />
             <Link href="/contact">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
-                Contact Us
+                Contáctanos
               </Button>
             </Link>
           </nav>
