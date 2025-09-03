@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils';
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lang = pathname.split('/')[1] || 'es';
 
   const navLinks = [
     { href: '/', label: "Inicio" },
@@ -28,11 +29,13 @@ export default function Header() {
     { href: '/contact', label: "Contacto" },
   ];
 
-  const NavLink = ({ href, label }: { href: string; label: string; }) => {
-    const isActive = pathname === href;
+  const NavLink = ({ href, label, lang }: { href: string; label: string; lang: string }) => {
+    // Ensure href starts with a '/' and handle root path correctly
+    const finalHref = href === '/' ? `/${lang}` : `/${lang}${href}`;
+    const isActive = pathname === finalHref;
     return (
       <Link
-        href={href}
+        href={finalHref}
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
           isActive ? "text-primary" : "text-muted-foreground"
@@ -48,7 +51,7 @@ export default function Header() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="px-2">
-          <span className="font-medium uppercase">Es</span>
+          <span className="font-medium uppercase">{lang}</span>
           <span className="sr-only">Change language</span>
         </Button>
       </DropdownMenuTrigger>
@@ -67,13 +70,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
             <Icons.logo className="h-6 w-6 text-primary" />
             <span className="hidden font-bold sm:inline-block">Gamers4Gamers</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <NavLink key={link.href} href={link.href} label={link.label} lang={lang} />
             ))}
           </nav>
         </div>
@@ -88,27 +91,27 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
+                <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6">
                   <Icons.logo className="h-6 w-6 text-primary" />
                   <span className="font-bold">Gamers4Gamers</span>
                 </Link>
                 <div className="flex flex-col space-y-4 px-4">
                   {navLinks.map((link) => (
-                     <NavLink key={link.href} href={link.href} label={link.label} />
+                     <NavLink key={link.href} href={link.href} label={link.label} lang={lang} />
                   ))}
                 </div>
               </SheetContent>
             </Sheet>
           </div>
 
-          <Link href="/" className="flex items-center space-x-2 md:hidden">
+          <Link href={`/${lang}`} className="flex items-center space-x-2 md:hidden">
             <Icons.logo className="h-6 w-6 text-primary" />
             <span className="font-bold">Gamers4Gamers</span>
           </Link>
 
           <nav className="flex items-center gap-2">
             <LanguageSwitcher />
-            <Link href="/contact">
+            <Link href={`/${lang}/contact`}>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
                 Contáctanos
               </Button>
