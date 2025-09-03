@@ -89,7 +89,7 @@ export const teamMembers = [
     name: 'Jhon',
     role: 'Líder de Soluciones',
     bio: 'Jhon se especializa en crear soluciones a medida para las necesidades de cada cliente, desde gaming hasta producción.',
-    image: '/A1.png',
+    image: '/A11.png',
   },
   {
     name: 'Anderson',

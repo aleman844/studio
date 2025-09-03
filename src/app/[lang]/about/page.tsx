@@ -30,11 +30,11 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
         </div>
         <div>
           <Image
-            src="https://picsum.photos/800/600"
+            src="/M1.png"
             width={800}
             height={600}
-            alt="Gamers4Gamers Team Workshop"
-            data-ai-hint="computer workshop"
+            alt="Gamers4Gamers Team Mission and Vision"
+            data-ai-hint="office workspace"
             className="rounded-lg shadow-2xl"
           />
         </div>
