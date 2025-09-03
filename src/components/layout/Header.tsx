@@ -148,8 +148,8 @@ export default function Header() {
                          </div>
                       </div>
                     ) :
-                    <div className='px-4'>
-                      <NavLink key={link.href} {...link} />
+                    <div key={link.href} className='px-4'>
+                      <NavLink {...link} />
                     </div>
                   ))}
                 </div>
