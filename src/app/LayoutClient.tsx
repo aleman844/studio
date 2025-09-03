@@ -45,9 +45,9 @@ export default function LayoutClient({
       {showIntro ? (
         <IntroAnimation onFinish={handleIntroFinish} />
       ) : (
-        <div className="relative flex min-h-screen flex-col">
+        <div className="relative flex min-h-screen flex-col animate-fade-in">
           <Header />
-          <main key={animationKey} className="flex-1 bg-background z-10 animate-fade-in">
+          <main key={animationKey} className="flex-1 bg-background z-10">
             {children}
           </main>
           <ScrollAnimation>
