@@ -12,7 +12,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
     const timer = setTimeout(() => {
       setIsExiting(true);
       setTimeout(onFinish, 500); // Wait for fade-out animation to complete
-    }, 5000); // Total duration of the intro screen
+    }, 8000); // Total duration of the intro screen
 
     return () => clearTimeout(timer);
   }, [onFinish]);
@@ -20,25 +20,17 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
   return (
     <div
       className={cn(
-        'fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-500',
+        'fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-500 animate-brush-reveal',
         isExiting ? 'animate-fade-out' : ''
       )}
     >
-      <div className="flex flex-col items-center gap-6">
-        <Image 
-          src="/logo.svg" 
-          alt="Gamers4Gamers Logo" 
-          width={192} 
-          height={192} 
-          className="h-48 w-48 text-primary animate-wobble-and-rotate"
-        />
-        <h1 
-          className="text-4xl font-bold tracking-wider text-foreground animate-slide-in-bottom" 
-          style={{ animationDelay: '0.5s' }}
-        >
-          Gamers4Gamers
-        </h1>
-      </div>
+      <Image 
+        src="/logo.svg" 
+        alt="Gamers4Gamers Logo" 
+        width={384} 
+        height={384} 
+        className="h-96 w-96 text-primary animate-wobble-and-rotate"
+      />
     </div>
   );
 }
