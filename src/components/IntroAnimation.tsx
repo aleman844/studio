@@ -28,9 +28,9 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
         <Image 
           src="/logo.svg" 
           alt="Gamers4Gamers Logo" 
-          width={96} 
-          height={96} 
-          className="h-24 w-24 text-primary animate-wobble-and-rotate"
+          width={192} 
+          height={192} 
+          className="h-48 w-48 text-primary animate-wobble-and-rotate"
         />
         <h1 
           className="text-4xl font-bold tracking-wider text-foreground animate-slide-in-bottom" 
