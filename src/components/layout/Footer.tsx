@@ -4,25 +4,14 @@
 import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
-import { useDictionary } from '@/contexts/DictionaryContext';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
-export default function Footer() {
-  const dict = useDictionary();
+export default function Footer({ lang, dict }: { lang: string, dict: any }) {
   const pathname = usePathname();
-  const [lang, setLang] = useState('en');
-
-  useEffect(() => {
-    if (pathname) {
-      const segments = pathname.split('/');
-      setLang(segments[1] || 'en');
-    }
-  }, [pathname]);
 
   if (!dict) return null;
 
-  const footerDict = dict.footer;
+  const footerDict = dict;
 
   return (
     <footer className="w-full border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

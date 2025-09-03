@@ -15,20 +15,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { useDictionary } from '@/contexts/DictionaryContext';
 
-export default function Header() {
+export default function Header({ lang, dict }: { lang: string, dict: any }) {
   const pathname = usePathname();
-  const dict = useDictionary()?.header;
-  const [lang, setLang] = useState('en');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (pathname) {
-      const segments = pathname.split('/');
-      setLang(segments[1] || 'en');
-    }
-  }, [pathname]);
 
   if (!dict) return null; // Or a loading skeleton
 
