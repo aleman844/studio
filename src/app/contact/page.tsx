@@ -140,7 +140,7 @@ export default function ContactPage() {
                     </div>
                      <div className="flex items-center gap-4">
                         <Mail className="w-6 h-6 text-primary"/>
-                        <span>contact@gamers4gamers.com</span>
+                        <span>redes@g4gamers.com.co</span>
                     </div>
                      <div className="flex items-center gap-4">
                         <Phone className="w-6 h-6 text-primary"/>

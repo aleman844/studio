@@ -97,7 +97,7 @@ export default function ContactPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{dict.email}</FormLabel>
+                    <FormLabel>{dict.email_label}</FormLabel>
                     <FormControl>
                       <Input placeholder="you@example.com" {...field} />
                     </FormControl>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                     </div>
                      <div className="flex items-center gap-4">
                         <Mail className="w-6 h-6 text-primary"/>
-                        <span>contact@gamers4gamers.com</span>
+                        <span>{dict.email}</span>
                     </div>
                      <div className="flex items-center gap-4">
                         <Phone className="w-6 h-6 text-primary"/>
