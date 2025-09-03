@@ -169,7 +169,7 @@ body {
       hsl(var(--background))
     );
     background-size: 200% 200%;
-    animation: brush-stroke 8s ease infinite;
+    animation: brush-stroke 15s ease infinite;
     opacity: 0.8;
   }
 
