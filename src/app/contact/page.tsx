@@ -9,8 +9,27 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MapPin, Phone, Twitter, Instagram, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
+
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      <path d="M14.05 2.9A15.9 15.9 0 0 1 21.1 10m-7.05-7.1A15.9 15.9 0 0 0 2.9 10" />
+    </svg>
+);
+
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -117,7 +136,7 @@ export default function ContactPage() {
                 <div className="space-y-4 text-muted-foreground">
                     <div className="flex items-center gap-4">
                         <MapPin className="w-6 h-6 text-primary"/>
-                        <span>123 Gaming Lane, Tech City, 12345</span>
+                        <span>Medellín, CC Monterrey, Local 216 Cra. 48 # 10-45</span>
                     </div>
                      <div className="flex items-center gap-4">
                         <Mail className="w-6 h-6 text-primary"/>
@@ -132,9 +151,9 @@ export default function ContactPage() {
              <div>
                 <h2 className="text-2xl font-bold mb-4">Follow Us</h2>
                  <div className="flex space-x-4">
-                    <Link href="#" aria-label="Twitter"><Twitter className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
-                    <Link href="#" aria-label="Facebook"><Facebook className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
-                    <Link href="#" aria-label="Instagram"><Instagram className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
+                    <Link href="https://wa.me/573218331005" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
+                    <Link href="http://facebook.com/GamersForGamersStore" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
+                    <Link href="https://www.instagram.com/gamers4gamersstore" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
                 </div>
             </div>
             <div>

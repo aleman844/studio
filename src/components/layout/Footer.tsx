@@ -6,6 +6,7 @@ import { Icons } from '../icons';
 import { Instagram, Facebook } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { useDictionary } from '@/hooks/use-dictionary';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -29,6 +30,11 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export default function Footer() {
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'es';
+  const dict = useDictionary()?.footer;
+  
+  if (!dict) {
+    return null; // or a loading spinner
+  }
 
   return (
     <footer className="relative overflow-hidden w-full border-t border-border/40 bg-card text-card-foreground animate-brush-reveal">
@@ -40,20 +46,20 @@ export default function Footer() {
               <span className="text-xl font-bold">Gamers4Gamers</span>
             </Link>
             <p className="text-muted-foreground">
-              Creando PCs de alto rendimiento para gaming y uso profesional.
+              {dict.tagline}
             </p>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Enlaces Rápidos</h3>
+            <h3 className="font-semibold mb-4">{dict.quick_links}</h3>
             <ul className="space-y-2">
-              <li><Link href={`/${lang}/about`} className="text-muted-foreground hover:text-primary transition-colors">Sobre Nosotros</Link></li>
-              <li><Link href={`/${lang}/products`} className="text-muted-foreground hover:text-primary transition-colors">Productos</Link></li>
-              <li><Link href={`/${lang}/contact`} className="text-muted-foreground hover:text-primary transition-colors">Contacto</Link></li>
-              <li><Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href={`/${lang}/about`} className="text-muted-foreground hover:text-primary transition-colors">{dict.about_us}</Link></li>
+              <li><Link href={`/${lang}/products`} className="text-muted-foreground hover:text-primary transition-colors">{dict.products}</Link></li>
+              <li><Link href={`/${lang}/contact`} className="text-muted-foreground hover:text-primary transition-colors">{dict.contact}</Link></li>
+              <li><Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-primary transition-colors">{dict.blog}</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Conecta con Nosotros</h3>
+            <h3 className="font-semibold mb-4">{dict.connect_with_us}</h3>
             <div className="flex space-x-4 mb-4">
               <Link href="https://wa.me/573218331005" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
@@ -65,12 +71,12 @@ export default function Footer() {
                 <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
               </Link>
             </div>
-            <p className="text-muted-foreground text-sm">123 Gaming Lane, Tech City, 12345</p>
-            <p className="text-muted-foreground text-sm">contacto@gamers4gamers.com</p>
+            <p className="text-muted-foreground text-sm">{dict.address}</p>
+            <p className="text-muted-foreground text-sm">{dict.email}</p>
           </div>
         </div>
         <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
-          <p>&#169; {new Date().getFullYear()} Gamers4Gamers. Todos los derechos reservados.</p>
+          <p>{dict.copyright.replace('{year}', new Date().getFullYear())}</p>
         </div>
       </div>
     </footer>
