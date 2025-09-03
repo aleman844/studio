@@ -186,6 +186,6 @@ body {
     animation: fade-in 0.7s ease-out forwards;
   }
   .animate-wobble-and-rotate {
-    animation: wobble-and-rotate 8s ease-in-out;
+    animation: wobble-and-rotate 4s ease-in-out;
   }
 }
