@@ -16,7 +16,7 @@ const GpuIcon = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 const WhatsAppButton = ({ productName, lang, dict }: { productName: string, lang: string, dict: any }) => {
-  const phoneNumber = '1234567890'; // Replace with actual number
+  const phoneNumber = '573218331005'; // Replace with actual number
   const message = `Hi, I'm interested in the "${productName}" build. Can I get more information?`;
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
