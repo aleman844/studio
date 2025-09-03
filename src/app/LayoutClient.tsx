@@ -9,6 +9,7 @@ import IntroAnimation from '@/components/IntroAnimation';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 export default function LayoutClient({
   children,
@@ -54,6 +55,7 @@ export default function LayoutClient({
           <Footer />
         </ScrollAnimation>
       </div>
+      <ScrollToTopButton />
       <Toaster />
     </>
   );
