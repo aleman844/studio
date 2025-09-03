@@ -36,13 +36,25 @@ export default function Brands() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
                     {brandLogos.map((brand) => (
                         <div key={brand.name} className="flex justify-center">
-                            <Image
-                                src={brand.src}
-                                alt={`${brand.name} logo`}
-                                width={brand.width}
-                                height={brand.height}
-                                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                            />
+                            {brand.name === 'AMD' ? (
+                                <div className="bg-white rounded-lg p-2">
+                                    <Image
+                                        src={brand.src}
+                                        alt={`${brand.name} logo`}
+                                        width={brand.width}
+                                        height={brand.height}
+                                        className="object-contain"
+                                    />
+                                </div>
+                            ) : (
+                                <Image
+                                    src={brand.src}
+                                    alt={`${brand.name} logo`}
+                                    width={brand.width}
+                                    height={brand.height}
+                                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                                />
+                            )}
                         </div>
                     ))}
                 </div>
