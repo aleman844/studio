@@ -29,8 +29,7 @@ export default function Header() {
     { href: '/contact', label: "Contacto" },
   ];
 
-  const NavLink = ({ href, label, lang }: { href: string; label: string; lang: string }) => {
-    // Ensure href starts with a '/' and handle root path correctly
+  const NavLink = ({ href, label }: { href: string; label: string; }) => {
     const finalHref = href === '/' ? `/${lang}` : `/${lang}${href}`;
     const isActive = pathname === finalHref;
     return (
@@ -76,7 +75,7 @@ export default function Header() {
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} lang={lang} />
+              <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
         </div>
@@ -97,7 +96,7 @@ export default function Header() {
                 </Link>
                 <div className="flex flex-col space-y-4 px-4">
                   {navLinks.map((link) => (
-                     <NavLink key={link.href} href={link.href} label={link.label} lang={lang} />
+                     <NavLink key={link.href} href={link.href} label={link.label} />
                   ))}
                 </div>
               </SheetContent>
