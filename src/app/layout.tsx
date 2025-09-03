@@ -1,25 +1,36 @@
 
-import type { Metadata } from 'next';
+"use client";
+
+import { useEffect, useState } from 'react';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { getDictionary } from '@/lib/dictionaries';
 import Providers from './providers';
+import IntroAnimation from '@/components/IntroAnimation';
 
-export const metadata: Metadata = {
-  title: 'Gamers4Gamers',
-  description: 'Specialized PC solutions, parts, and technical services.',
-};
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: string };
 }>) {
-  const dictionary = await getDictionary(params.lang);
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+    if (hasSeenIntro) {
+      setShowIntro(false);
+    } else {
+      sessionStorage.setItem('hasSeenIntro', 'true');
+    }
+  }, []);
+  
+  const handleIntroFinish = () => {
+    setShowIntro(false);
+  };
+
   return (
     <html lang={params.lang ?? 'en'} className="dark">
       <head>
@@ -31,14 +42,18 @@ export default async function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <Providers dictionary={dictionary}>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
-        </Providers>
+        {showIntro ? (
+          <IntroAnimation onFinish={handleIntroFinish} />
+        ) : (
+          <Providers dictionary={{}}>
+            <div className="relative flex min-h-screen flex-col animate-fade-in">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <Toaster />
+          </Providers>
+        )}
       </body>
     </html>
   );
