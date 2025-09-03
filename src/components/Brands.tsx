@@ -69,7 +69,7 @@ export default function Brands() {
                 "flex justify-center items-center opacity-0",
                 isVisible && "animate-jump-in"
               )}
-              style={{ animationDelay: `${index * 150}ms` }}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               <Image
                 src={brand.src}
