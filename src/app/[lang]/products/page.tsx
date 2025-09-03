@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Cpu, Dribbble, HardDrive, MemoryStick } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionaries';
 
 export default async function ProductsPage({ params: { lang } }: { params: { lang: string } }) {
@@ -30,7 +30,7 @@ export default async function ProductsPage({ params: { lang } }: { params: { lan
                       src={product.image}
                       alt={product.name}
                       fill
-                      data-ai-hint={product.category === 'Gaming PC' ? 'gaming pc' : 'workstation computer'}
+                      data-ai-hint={product.category.toLowerCase()}
                       className="object-cover"
                     />
                  </div>
@@ -40,10 +40,10 @@ export default async function ProductsPage({ params: { lang } }: { params: { lan
                       <CardDescription>{product.category}</CardDescription>
                     </CardHeader>
                     <CardContent className="grid gap-2 flex-grow">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><Cpu size={16} /> {product.specs.cpu}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><Dribbble size={16}/> {product.specs.gpu}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><MemoryStick size={16}/> {product.specs.ram}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><HardDrive size={16}/> {product.specs.storage}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16} /> {product.specs.spec1}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16}/> {product.specs.spec2}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16}/> {product.specs.spec3}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16}/> {product.specs.spec4}</div>
                     </CardContent>
                     <CardFooter className="flex justify-between items-center mt-4">
                       <p className="text-2xl font-bold text-primary">${product.price.toLocaleString()}</p>

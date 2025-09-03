@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { teamMembers, products } from '@/lib/data';
-import { ArrowRight, Cpu, Dribbble, Github, HardDrive, MemoryStick, Twitter } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -42,7 +42,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 </div>
               </div>
               <Image
-                src="https://picsum.photos/1200/800"
+                src="/P1.jpeg"
                 width={1200}
                 height={800}
                 alt="Hero"
@@ -90,17 +90,17 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                         alt={product.name}
                         width={600}
                         height={400}
-                        data-ai-hint={product.category === 'Gaming PC' ? 'gaming pc' : 'workstation computer'}
+                        data-ai-hint={product.category.toLowerCase()}
                         className="rounded-t-lg object-cover aspect-[3/2]"
                       />
                       <CardTitle className="pt-4">{product.name}</CardTitle>
                       <CardDescription>{product.category}</CardDescription>
                     </CardHeader>
                     <CardContent className="grid gap-2 flex-grow">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><Cpu /> {product.specs.cpu}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><Dribbble /> {product.specs.gpu}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><MemoryStick /> {product.specs.ram}</div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><HardDrive /> {product.specs.storage}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec1}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec2}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec3}</div>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec4}</div>
                     </CardContent>
                     <CardFooter className="flex justify-between items-center">
                       <p className="text-2xl font-bold text-primary">${product.price.toLocaleString()}</p>
