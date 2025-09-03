@@ -4,19 +4,14 @@
 import Link from 'next/link';
 import { Icons } from '../icons';
 import { Twitter, Instagram, Facebook } from 'lucide-react';
-import { useDictionary } from '@/hooks/use-dictionary';
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
-  const dict = useDictionary();
-  const footerDict = dict.footer;
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'es';
 
-  if (!footerDict) return null;
-
   return (
-    <footer className="w-full border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <footer className="sticky bottom-0 w-full border-t border-border/40 bg-card text-card-foreground">
       <div className="container mx-auto py-8 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

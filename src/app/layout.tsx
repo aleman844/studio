@@ -8,6 +8,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Providers from './providers';
 import IntroAnimation from '@/components/IntroAnimation';
+import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function RootLayout({
   children,
@@ -47,9 +48,11 @@ export default function RootLayout({
         ) : (
           <Providers dictionary={{}}>
             <div className="relative flex min-h-screen flex-col animate-fade-in">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
+              <Header lang={params.lang} />
+              <main className="flex-1 bg-background z-10">{children}</main>
+              <ScrollAnimation>
+                <Footer />
+              </ScrollAnimation>
             </div>
             <Toaster />
           </Providers>

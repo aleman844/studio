@@ -60,6 +60,9 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  main + footer {
+    margin-top: -1px;
+  }
 }
 
 @layer utilities {
