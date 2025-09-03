@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getDictionary } from '@/lib/dictionaries';
-import { DictionaryProvider } from '@/contexts/DictionaryContext';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'Gamers4Gamers',
@@ -31,14 +31,14 @@ export default async function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <DictionaryProvider dictionary={dictionary}>
+        <Providers dictionary={dictionary}>
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
           <Toaster />
-        </DictionaryProvider>
+        </Providers>
       </body>
     </html>
   );
