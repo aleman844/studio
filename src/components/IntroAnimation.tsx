@@ -30,7 +30,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
           alt="Gamers4Gamers Logo" 
           width={96} 
           height={96} 
-          className="h-24 w-24 text-primary animate-scale-in-out animate-spin-slow"
+          className="h-24 w-24 text-primary animate-wobble-and-rotate"
         />
         <h1 
           className="text-4xl font-bold tracking-wider text-foreground animate-slide-in-bottom" 
