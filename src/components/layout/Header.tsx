@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Languages, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -17,10 +17,19 @@ import {
 import { cn } from '@/lib/utils';
 import { useDictionary } from '@/contexts/DictionaryContext';
 
-export default function Header({ lang }: { lang: string }) {
+export default function Header() {
   const pathname = usePathname();
+  const [lang, setLang] = useState('en');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dict = useDictionary().header;
+
+  useEffect(() => {
+    if (pathname) {
+      const segments = pathname.split('/');
+      // Assuming the language is the first segment, e.g., /en/products
+      setLang(segments[1] || 'en');
+    }
+  }, [pathname]);
 
   if (!dict) return null; // Or a loading skeleton
 

@@ -33,7 +33,7 @@ export default async function RootLayout({
       <body className="font-body antialiased">
         <DictionaryProvider dictionary={dictionary}>
           <div className="relative flex min-h-screen flex-col">
-            <Header lang={params.lang} />
+            <Header />
             <main className="flex-1">{children}</main>
             <Footer lang={params.lang} />
           </div>
