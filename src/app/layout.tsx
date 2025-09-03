@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang={params.lang ?? 'en'} className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -26,9 +28,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <div className="relative flex min-h-screen flex-col">
-          <Header />
+          <Header lang={params.lang} />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer lang={params.lang} />
         </div>
         <Toaster />
       </body>

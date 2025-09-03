@@ -1,0 +1,97 @@
+{
+    "home": {
+        "title": "Diseñado para la Victoria. Hecho por Gamers, para Gamers.",
+        "description": "En Gamers4Gamers, creamos PCs de alto rendimiento a medida para gaming y diseño gráfico profesional. Experimenta un poder sin igual y un servicio técnico dedicado.",
+        "explore_builds": "Explorar Equipos",
+        "get_a_quote": "Obtener Cotización",
+        "our_mission": "Nuestra Misión",
+        "unleashing_potential": "Liberando Tu Potencial",
+        "mission_description": "Nos dedicamos a proporcionar las soluciones de PC personalizadas más potentes y fiables. Nuestra misión es empoderar a gamers, creadores y profesionales con tecnología que supera los límites del rendimiento.",
+        "featured_products": "Productos Destacados",
+        "top_tiers": "Nuestros Mejores Equipos",
+        "featured_products_description": "Echa un vistazo a algunos de nuestros equipos más populares, diseñados para el máximo rendimiento en juegos y trabajo creativo.",
+        "view_details": "Ver Detalles",
+        "meet_the_experts": "Conoce a los Expertos",
+        "team_description": "Nuestro equipo de apasionados ensambladores y técnicos son el corazón de Gamers4Gamers."
+    },
+    "header": {
+        "home": "Inicio",
+        "products": "Productos",
+        "about": "Nosotros",
+        "blog": "Blog",
+        "contact": "Contacto",
+        "tools": "Herramientas",
+        "seo_optimizer": "Optimizador SEO",
+        "article_generator": "Generador de Artículos",
+        "contact_us": "Contáctanos"
+    },
+    "footer": {
+        "tagline": "Creando PCs de alto rendimiento para gaming y uso profesional.",
+        "quick_links": "Enlaces Rápidos",
+        "about_us": "Sobre Nosotros",
+        "products": "Productos",
+        "contact": "Contacto",
+        "blog": "Blog",
+        "connect_with_us": "Conecta con Nosotros",
+        "address": "123 Gaming Lane, Tech City, 12345",
+        "email": "contacto@gamers4gamers.com",
+        "copyright": "© {year} Gamers4Gamers. Todos los derechos reservados."
+    },
+    "products_page": {
+        "title": "Nuestro Arsenal",
+        "description": "Explora nuestra gama de sistemas preconfigurados y componentes individuales. Cada producto es seleccionado y probado para el máximo rendimiento y fiabilidad.",
+        "custom_builds": "Equipos Personalizados",
+        "details": "Detalles",
+        "computer_parts": "Componentes",
+        "request_custom_list": "Solicitar Lista de Componentes"
+    },
+    "product_detail_page": {
+        "chat_on_whatsapp": "Chatear en WhatsApp",
+        "request_customization": "Solicitar Personalización",
+        "full_specifications": "Especificaciones Completas",
+        "processor": "Procesador",
+        "graphics_card": "Tarjeta Gráfica",
+        "memory": "Memoria (RAM)",
+        "storage": "Almacenamiento",
+        "feature1": "Ensamblado y gestión de cables profesional",
+        "feature2": "72 horas de pruebas de estrés y control de calidad",
+        "feature3": "3 años de garantía en piezas y mano de obra"
+    },
+    "about_page": {
+        "title": "Sobre Gamers4Gamers",
+        "description": "Somos más que una empresa; somos un equipo de entusiastas, gamers y creadores dedicados a superar los límites del rendimiento.",
+        "mission_vision": "Nuestra Misión y Visión",
+        "mission_text": "Nuestra misión es empoderar a las personas proporcionándoles las soluciones de PC personalizadas más potentes y fiables del mercado. Creemos que con las herramientas adecuadas, cualquiera puede alcanzar la grandeza, ya sea en el campo de batalla digital, en un render 3D complejo o durante una transmisión en vivo impecable.",
+        "vision_text": "Nuestra visión es ser el nombre más confiable en computación de alto rendimiento, conocidos por nuestra artesanía incomparable, tecnología de vanguardia y compromiso inquebrantable con nuestros clientes. No solo vendemos computadoras; construimos alianzas.",
+        "what_we_do_best": "Lo que Hacemos Mejor",
+        "specialized_solutions": "Soluciones de PC Especializadas",
+        "specialized_solutions_desc": "Sistemas personalizados para gaming de élite, creación de contenido profesional y computación científica.",
+        "premium_components": "Componentes Premium",
+        "premium_components_desc": "Obtenemos y utilizamos solo piezas de la más alta calidad de marcas líderes para garantizar la estabilidad y el rendimiento.",
+        "expert_services": "Servicios Técnicos Expertos",
+        "expert_services_desc": "Soporte de por vida de los expertos que construyeron tu máquina, desde la solución de problemas hasta futuras actualizaciones.",
+        "meet_the_team": "Conoce al Equipo"
+    },
+    "blog_page": {
+        "title": "El Centro Tecnológico G4G",
+        "description": "Análisis, guías y las últimas noticias del mundo de la computación de alto rendimiento, traídas por nuestros expertos."
+    },
+    "contact_page": {
+        "title": "Ponte en Contacto",
+        "description": "¿Tienes una pregunta, una solicitud personalizada o necesitas soporte técnico? Estamos aquí para ayudar.",
+        "send_message": "Envíanos un Mensaje",
+        "full_name": "Nombre Completo",
+        "email": "Correo Electrónico",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "submit": "Enviar",
+        "contact_information": "Información de Contacto",
+        "address": "123 Gaming Lane, Tech City, 12345",
+        "phone": "+1 (234) 567-890",
+        "follow_us": "Síguenos",
+        "our_location": "Nuestra Ubicación",
+        "map_placeholder": "Marcador de Google Maps",
+        "toast_title": "¡Mensaje Enviado!",
+        "toast_description": "Gracias por contactarnos. Te responderemos en breve."
+    }
+}

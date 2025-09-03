@@ -21,7 +21,7 @@ const formSchema = z.object({
   tone: z.string({ required_error: "Please select a tone." }),
 });
 
-export default function ArticleGenerator() {
+export default function ArticleGenerator({ lang }: { lang: string }) {
   const { toast } = useToast();
   const [result, setResult] = useState<GenerateTechArticleOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);

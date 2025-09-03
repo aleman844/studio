@@ -14,14 +14,14 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { suggestSeoOptimizationsAction } from "@/app/actions";
 import { SuggestSeoOptimizationsOutput } from "@/ai/flows/suggest-seo-optimizations";
-import { Lightbulb, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   websiteContent: z.string().min(50, { message: "Content must be at least 50 characters." }),
   targetKeywords: z.string().min(3, { message: "Please provide at least one keyword." }),
 });
 
-export default function SeoTool() {
+export default function SeoTool({ lang }: { lang: string }) {
   const { toast } = useToast();
   const [result, setResult] = useState<SuggestSeoOptimizationsOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);

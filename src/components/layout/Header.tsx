@@ -2,35 +2,48 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Icons } from '../icons';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { getDictionary } from '@/lib/dictionaries';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-  {
-    href: '/tools',
-    label: 'Tools',
-    subLinks: [
-      { href: '/tools/seo', label: 'SEO Optimizer' },
-      { href: '/tools/article-generator', label: 'Article Generator' },
-    ],
-  },
-];
-
-export default function Header() {
+export default function Header({ lang }: { lang: string }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [dict, setDict] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchDict = async () => {
+      const d = await getDictionary(lang);
+      setDict(d.header);
+    };
+    fetchDict();
+  }, [lang]);
+
+  if (!dict) return null; // Or a loading skeleton
+
+  const navLinks = [
+    { href: `/${lang}/`, label: dict.home },
+    { href: `/${lang}/products`, label: dict.products },
+    { href: `/${lang}/about`, label: dict.about },
+    { href: `/${lang}/blog`, label: dict.blog },
+    { href: `/${lang}/contact`, label: dict.contact },
+    {
+      href: '/tools',
+      label: dict.tools,
+      subLinks: [
+        { href: `/${lang}/tools/seo`, label: dict.seo_optimizer },
+        { href: `/${lang}/tools/article-generator`, label: dict.article_generator },
+      ],
+    },
+  ];
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
-    const isActive = pathname === href;
+    // Exact match for home, startsWith for others
+    const isActive = href === `/${lang}/` ? pathname === href : pathname.startsWith(href);
     return (
       <Link
         href={href}
@@ -44,12 +57,12 @@ export default function Header() {
       </Link>
     );
   };
-  
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
             <Icons.logo className="h-6 w-6 text-primary" />
             <span className="hidden font-bold sm:inline-block">Gamers4Gamers</span>
           </Link>
@@ -57,7 +70,7 @@ export default function Header() {
             {navLinks.filter(l => !l.subLinks).map((link) => (
               <NavLink key={link.href} {...link} />
             ))}
-             <Link href="/tools/seo" className={cn("text-sm font-medium transition-colors hover:text-primary", pathname.startsWith('/tools') ? "text-primary" : "text-muted-foreground")}>Tools</Link>
+             <Link href={`/${lang}/tools/seo`} className={cn("text-sm font-medium transition-colors hover:text-primary", pathname.includes('/tools') ? "text-primary" : "text-muted-foreground")}>{dict.tools}</Link>
           </nav>
         </div>
 
@@ -71,34 +84,38 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
+                <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2 mb-6">
                   <Icons.logo className="h-6 w-6 text-primary" />
                   <span className="font-bold">Gamers4Gamers</span>
                 </Link>
                 <div className="flex flex-col space-y-4">
                   {navLinks.map((link) => (
                     link.subLinks ? (
-                      <div key={link.href}>
-                         <h4 className="font-medium px-4 py-2">{link.label}</h4>
-                         {link.subLinks.map(sublink => <NavLink key={sublink.href} {...sublink} />)}
+                      <div key={link.href} className='px-4'>
+                         <h4 className="font-medium py-2">{link.label}</h4>
+                         <div className='flex flex-col space-y-4 ml-4'>
+                            {link.subLinks.map(sublink => <NavLink key={sublink.href} {...sublink} />)}
+                         </div>
                       </div>
                     ) :
-                    <NavLink key={link.href} {...link} />
+                    <div className='px-4'>
+                      <NavLink key={link.href} {...link} />
+                    </div>
                   ))}
                 </div>
               </SheetContent>
             </Sheet>
           </div>
 
-          <Link href="/" className="flex items-center space-x-2 md:hidden">
+          <Link href={`/${lang}`} className="flex items-center space-x-2 md:hidden">
              <Icons.logo className="h-6 w-6 text-primary" />
              <span className="font-bold">Gamers4Gamers</span>
           </Link>
 
           <nav className="flex items-center">
-            <Link href="/contact">
+            <Link href={`/${lang}/contact`}>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                Contact Us
+                {dict.contact_us}
               </Button>
             </Link>
           </nav>
