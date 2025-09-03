@@ -14,6 +14,8 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   const dict = await getDictionary(lang);
   const homeDict = dict.home;
   const featuredProducts = products.slice(0, 4);
+  const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -36,7 +38,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                       {homeDict.explore_builds}
                     </Button>
                   </Link>
-                  <Link href={`/${lang}/contact`}>
+                  <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                       {homeDict.get_a_quote}
                     </Button>
@@ -91,8 +93,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec3}</div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec4}</div>
                     </CardContent>
-                    <CardFooter className="flex justify-between items-center">
-                      <p className="text-2xl font-bold text-primary">${product.price.toLocaleString()}</p>
+                    <CardFooter className="flex justify-end items-center">
                       <Link href={`/${lang}/products/${product.slug}`}>
                         <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                           {homeDict.view_details} <ArrowRight className="ml-2 h-4 w-4" />

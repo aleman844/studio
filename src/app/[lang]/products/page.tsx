@@ -1,3 +1,4 @@
+
 import { products, computerParts } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,8 @@ import { getDictionary } from '@/lib/dictionaries';
 export default async function ProductsPage({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
   const productsDict = dict.products_page;
+  const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
+
 
   return (
     <div className="container mx-auto px-4 py-12 md:px-6 md:py-20">
@@ -45,8 +48,7 @@ export default async function ProductsPage({ params: { lang } }: { params: { lan
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16}/> {product.specs.spec3}</div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle size={16}/> {product.specs.spec4}</div>
                     </CardContent>
-                    <CardFooter className="flex justify-between items-center mt-4">
-                      <p className="text-2xl font-bold text-primary">${product.price.toLocaleString()}</p>
+                    <CardFooter className="flex justify-end items-center mt-4">
                       <Link href={`/${lang}/products/${product.slug}`}>
                         <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                           {productsDict.details} <ArrowRight className="ml-2 h-4 w-4" />
@@ -71,7 +73,7 @@ export default async function ProductsPage({ params: { lang } }: { params: { lan
           ))}
         </div>
         <div className="text-center mt-8">
-          <Link href={`/${lang}/contact`}>
+          <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
             <Button size="lg">{productsDict.request_custom_list}</Button>
           </Link>
         </div>

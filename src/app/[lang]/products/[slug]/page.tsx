@@ -1,3 +1,4 @@
+
 import { products } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -17,7 +18,7 @@ const GpuIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const WhatsAppButton = ({ productName, lang, dict }: { productName: string, lang: string, dict: any }) => {
   const phoneNumber = '573218331005'; // Replace with actual number
-  const message = `Hi, I'm interested in the "${productName}" build. Can I get more information?`;
+  const message = `Hola, estoy interesado/a en el producto "${productName}". ¿Me podrían dar más información?`;
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
@@ -67,19 +68,13 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
         <div className="flex flex-col justify-center">
           <h1 className="text-3xl md:text-5xl font-bold font-headline">{product.name}</h1>
           <p className="text-lg text-muted-foreground mt-2">{product.category}</p>
-          <p className="text-4xl font-bold text-primary my-6">${product.price.toLocaleString()}</p>
           
-          <div className="space-y-4 text-lg">
+          <div className="space-y-4 text-lg my-6">
             <p className="text-muted-foreground leading-relaxed">{product.description}</p>
           </div>
           
           <div className="mt-8 space-y-4">
              <WhatsAppButton productName={product.name} lang={params.lang} dict={productDict} />
-             <Link href={`/${params.lang}/contact`}>
-               <Button size="lg" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                 {productDict.request_customization}
-               </Button>
-             </Link>
           </div>
         </div>
       </div>

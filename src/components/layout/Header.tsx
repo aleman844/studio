@@ -21,13 +21,13 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lang = pathname.split('/')[1] || 'es';
   const dict = useDictionary()?.header;
+  const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
 
   const navLinks = [
     { href: '/', label: dict?.home || 'Home' },
     { href: '/products', label: dict?.products || 'Products' },
     { href: '/about', label: dict?.about || 'About' },
     { href: '/blog', label: dict?.blog || 'Blog' },
-    { href: '/contact', label: dict?.contact || 'Contact' },
   ];
 
   const NavLink = ({ href, label }: { href: string; label: string; }) => {
@@ -113,7 +113,7 @@ export default function Header() {
 
           <nav className="flex items-center gap-2">
             <LanguageSwitcher />
-            <Link href={`/${lang}/contact`}>
+            <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
                 {dict?.contact_us || 'Contact Us'}
               </Button>

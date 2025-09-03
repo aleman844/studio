@@ -31,6 +31,7 @@ export default function Footer() {
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'es';
   const dict = useDictionary()?.footer;
+  const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
   
   if (!dict) {
     return null; // or a loading spinner
@@ -56,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href={`/${lang}/about`} className="text-muted-foreground hover:text-primary transition-colors">{dict.about_us}</Link></li>
               <li><Link href={`/${lang}/products`} className="text-muted-foreground hover:text-primary transition-colors">{dict.products}</Link></li>
-              <li><Link href={`/${lang}/contact`} className="text-muted-foreground hover:text-primary transition-colors">{dict.contact}</Link></li>
+              <li><Link href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">{dict.contact}</Link></li>
               <li><Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-primary transition-colors">{dict.blog}</Link></li>
             </ul>
           </div>

@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products',
     '/about',
     '/blog',
-    '/contact',
     '/tools/seo',
     '/tools/article-generator',
   ];
