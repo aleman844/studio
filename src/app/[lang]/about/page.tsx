@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { teamMembers } from '@/lib/data';
 import { Cpu, Rocket, Wrench } from 'lucide-react';
@@ -32,7 +33,7 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
             src="https://picsum.photos/800/600"
             width={800}
             height={600}
-            alt="Company Workshop"
+            alt="Gamers4Gamers Team Workshop"
             data-ai-hint="computer workshop"
             className="rounded-lg shadow-2xl"
           />
@@ -72,7 +73,7 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-card p-6 rounded-lg text-center transform transition-transform duration-300 hover:scale-105">
               <Avatar className="w-32 h-32 mx-auto mb-4 border-4 border-primary">
-                <AvatarImage src={member.image} alt={member.name} data-ai-hint="portrait professional" />
+                <AvatarImage src={member.image} alt={`Portrait of ${member.name}, ${member.role}`} data-ai-hint="portrait professional" />
                 <AvatarFallback>{member.name.substring(0, 2)}</AvatarFallback>
               </Avatar>
               <h3 className="text-xl font-bold">{member.name}</h3>

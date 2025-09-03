@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { teamMembers, products } from '@/lib/data';
@@ -11,7 +12,7 @@ import ScrollAnimation from '@/components/ScrollAnimation';
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
   const homeDict = dict.home;
-  const featuredProducts = products.slice(0, 3);
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -45,9 +46,10 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 src="/P1.jpeg"
                 width={1200}
                 height={800}
-                alt="Hero"
+                alt="High-performance gaming PC by Gamers4Gamers"
                 data-ai-hint="gaming pc"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+                priority
               />
             </div>
           </div>
@@ -81,13 +83,13 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {featuredProducts.map((product) => (
                   <Card key={product.id} className="transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 flex flex-col">
                     <CardHeader>
                       <Image
                         src={product.image}
-                        alt={product.name}
+                        alt={`Image of ${product.name}`}
                         width={600}
                         height={400}
                         data-ai-hint={product.category.toLowerCase()}
@@ -130,7 +132,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 {teamMembers.map((member) => (
                   <div key={member.name} className="flex flex-col items-center space-y-2">
                     <Avatar className="w-24 h-24">
-                      <AvatarImage src={member.image} alt={member.name} data-ai-hint="portrait professional" />
+                      <AvatarImage src={member.image} alt={`Portrait of ${member.name}, ${member.role}`} data-ai-hint="portrait professional" />
                       <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="text-center">
