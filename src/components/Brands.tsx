@@ -36,16 +36,13 @@ export default function Brands() {
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 items-center">
                     {brandLogos.map((brand) => (
-                        <div key={brand.name} className="relative group flex justify-center items-center overflow-hidden rounded-lg">
-                             <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                                <Link2 className="h-8 w-8 text-primary-foreground" />
-                            </div>
+                        <div key={brand.name} className="flex justify-center items-center">
                             <Image
                                 src={brand.src}
                                 alt={`${brand.name} logo`}
                                 width={brand.width}
                                 height={brand.height}
-                                className="object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-300"
+                                className="object-contain filter grayscale"
                             />
                         </div>
                     ))}
