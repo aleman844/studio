@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import IntroAnimation from '@/components/IntroAnimation';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import { usePathname } from 'next/navigation';
 
 export default function LayoutClient({
   children,
@@ -16,6 +17,8 @@ export default function LayoutClient({
   lang: string;
 }) {
   const [showIntro, setShowIntro] = useState(true);
+  const pathname = usePathname();
+  const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
@@ -29,10 +32,16 @@ export default function LayoutClient({
     }
   }, []);
   
+  useEffect(() => {
+    // Increment key on pathname change to re-trigger animation, but not for the first render
+    if (pathname) {
+      setAnimationKey(prevKey => prevKey + 1);
+    }
+  }, [pathname]);
+
   const handleIntroFinish = () => {
     setShowIntro(false);
     sessionStorage.setItem('hasSeenIntro', 'true');
-
   };
 
   return (
@@ -40,9 +49,11 @@ export default function LayoutClient({
       {showIntro ? (
         <IntroAnimation onFinish={handleIntroFinish} />
       ) : (
-        <div className="relative flex min-h-screen flex-col animate-fade-in">
+        <div className="relative flex min-h-screen flex-col">
           <Header lang={lang} />
-          <main className="flex-1 bg-background z-10">{children}</main>
+          <main key={animationKey} className="flex-1 bg-background z-10 animate-fade-in">
+            {children}
+          </main>
           <ScrollAnimation>
             <Footer />
           </ScrollAnimation>
