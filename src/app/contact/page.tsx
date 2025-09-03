@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -154,6 +154,7 @@ export default function ContactPage() {
                     <Link href="https://wa.me/573218331005" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
                     <Link href="http://facebook.com/GamersForGamersStore" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
                     <Link href="https://www.instagram.com/gamers4gamersstore" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
+                    <Link href="https://www.youtube.com/@gamers4gamers" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><Youtube className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" /></Link>
                 </div>
             </div>
             <div>

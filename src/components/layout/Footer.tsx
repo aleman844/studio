@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Icons } from '../icons';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useDictionary } from '@/hooks/use-dictionary';
@@ -69,6 +69,9 @@ export default function Footer() {
               </Link>
               <Link href="https://www.instagram.com/gamers4gamersstore" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </Link>
+              <Link href="https://www.youtube.com/@gamers4gamers" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                <Youtube className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
               </Link>
             </div>
             <p className="text-muted-foreground text-sm">{dict.address}</p>
