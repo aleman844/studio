@@ -67,19 +67,19 @@ export const teamMembers = [
     name: 'Julián',
     role: 'Ingeniero Especialista',
     bio: 'Julián es el cerebro detrás de nuestros ensambles más complejos, asegurando rendimiento y estabilidad.',
-    image: '/A1.png',
+    image: '/A33.png',
   },
   {
     name: 'Jhon',
     role: 'Líder de Soluciones',
     bio: 'Jhon se especializa en crear soluciones a medida para las necesidades de cada cliente, desde gaming hasta producción.',
-    image: '/A22.png',
+    image: '/A1.png',
   },
   {
     name: 'Anderson',
     role: 'Sales Manager',
     bio: 'Anderson te guiará para encontrar el equipo perfecto que se ajuste a tus metas y presupuesto.',
-    image: '/A33.png',
+    image: '/A22.png',
   },
 ];
 
