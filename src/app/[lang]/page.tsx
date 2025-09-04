@@ -53,7 +53,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                 height={800}
                 alt="High-performance gaming PC by Gamers4Gamers"
                 data-ai-hint="gaming pc"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]"
                 priority
               />
             </div>
