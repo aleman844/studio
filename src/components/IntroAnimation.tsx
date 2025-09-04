@@ -28,7 +28,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
       },
     ];
 
-    const timeouts = [1000, 1500, 5000, 1000];
+    const timeouts = [1000, 1500, 8000, 1000];
     let currentTimeoutIndex = 0;
 
     function runNextStep() {
@@ -75,10 +75,10 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
        
         {stage >= STAGES.TEXT && (
           <div className={cn(
-            "flex items-center space-x-2 -mt-28 overflow-hidden px-4",
+            "flex items-center space-x-2 -mt-36 overflow-hidden px-4",
              stage === STAGES.HOLD && "animate-scale-in-out"
           )} 
-          style={{ filter: 'drop-shadow(0 0 25px hsl(var(--foreground) / 0.5))' }}
+          style={{ filter: 'drop-shadow(0 0 45px hsl(var(--foreground) / 0.5))' }}
           >
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
               Gamers
