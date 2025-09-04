@@ -93,7 +93,12 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec3}</div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle /> {product.specs.spec4}</div>
                     </CardContent>
-                    <CardFooter className="flex justify-end items-center">
+                    <CardFooter className="flex justify-end items-center gap-2">
+                      <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                        <Button>
+                          {dict.header.contact_us}
+                        </Button>
+                      </Link>
                       <Link href={`/${lang}/products/${product.slug}`}>
                         <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                           {homeDict.view_details} <ArrowRight className="ml-2 h-4 w-4" />
