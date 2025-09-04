@@ -7,8 +7,15 @@ import Providers from './providers';
 import { getDictionary } from '@/lib/dictionaries';
 import LayoutClient from './LayoutClient';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { cn } from '@/lib/utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -68,15 +75,8 @@ export default async function RootLayout({
   const dictionary = await getDictionary(params.lang ?? 'es');
 
   return (
-    <html lang={params.lang ?? 'es'} className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang={params.lang ?? 'es'} className={cn("dark", inter.variable)}>
+      <head />
       <body className="font-body antialiased">
         <Providers dictionary={dictionary}>
           <LayoutClient>
@@ -87,4 +87,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
