@@ -21,7 +21,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="relative w-full py-24 md:py-40 lg:py-48 xl:py-64 bg-background overflow-hidden">
+        <section className="relative w-full py-20 md:py-28 lg:py-32 xl:py-40 bg-background overflow-hidden">
           <Starfield />
           <div className="container relative z-10 px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
