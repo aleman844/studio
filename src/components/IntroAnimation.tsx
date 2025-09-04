@@ -28,7 +28,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
       },
     ];
 
-    const timeouts = [1000, 1500, 3000, 1000];
+    const timeouts = [1000, 1500, 5000, 1000];
     let currentTimeoutIndex = 0;
 
     function runNextStep() {
@@ -67,7 +67,6 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             height={384} 
             className={cn(
               "h-96 w-96 text-primary animate-wobble-and-rotate",
-              stage < STAGES.HOLD && '[filter:drop-shadow(0_0_40px_hsl(var(--foreground)/0.6))]',
               stage === STAGES.HOLD && "animate-scale-in-out"
             )}
           />
@@ -75,8 +74,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
        
         {stage >= STAGES.TEXT && (
           <div className={cn(
-            "flex items-center space-x-2 -mt-16 overflow-hidden px-4",
-             stage < STAGES.HOLD && '[filter:drop-shadow(0_0_30px_hsl(var(--foreground)/0.8))]',
+            "flex items-center space-x-2 -mt-24 overflow-hidden px-4",
              stage === STAGES.HOLD && "animate-scale-in-out"
           )} >
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
