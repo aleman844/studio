@@ -65,13 +65,20 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             alt="Gamers4Gamers Logo" 
             width={384} 
             height={384} 
-            className="h-96 w-96 text-primary animate-wobble-and-rotate"
-            style={{ filter: 'drop-shadow(0 0 30px hsl(var(--foreground) / 0.4))' }}
+            className={cn(
+              "h-96 w-96 text-primary animate-wobble-and-rotate",
+              stage === STAGES.HOLD && "animate-scale-in-out"
+            )}
+            style={{ filter: 'drop-shadow(0 0 40px hsl(var(--foreground) / 0.6))' }}
           />
         )}
        
         {stage >= STAGES.TEXT && (
-          <div className="flex items-center space-x-2 -mt-4 overflow-hidden px-4" style={{ filter: 'drop-shadow(0 0 15px hsl(var(--foreground) / 0.5))' }}>
+          <div className={cn(
+            "flex items-center space-x-2 -mt-8 overflow-hidden px-4",
+            stage === STAGES.HOLD && "animate-scale-in-out"
+          )} 
+          style={{ filter: 'drop-shadow(0 0 25px hsl(var(--foreground) / 0.8))' }}>
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
               Gamers
             </span>
