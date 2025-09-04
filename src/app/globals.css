@@ -68,16 +68,13 @@ body {
 @layer utilities {
   @keyframes scale-in-out {
     0% {
-      transform: scale(0.8);
-      opacity: 0.5;
+      filter: drop-shadow(0 0 35px hsl(var(--foreground) / 0.5));
     }
     50% {
-      transform: scale(1);
-      opacity: 1;
+      filter: drop-shadow(0 0 50px hsl(var(--foreground) / 0.8));
     }
     100% {
-      transform: scale(0.8);
-      opacity: 0.5;
+      filter: drop-shadow(0 0 35px hsl(var(--foreground) / 0.5));
     }
   }
 
