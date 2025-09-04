@@ -20,7 +20,6 @@ export default function Starfield() {
     const generateStars = () => {
       const newStars = Array.from({ length: 150 }).map(() => {
         const size = Math.random() * 2 + 1;
-        const duration = Math.random() * 30 + 20; // Shorter duration for more frequent movement
         return {
           position: 'absolute',
           top: `${Math.random() * 100}%`,
@@ -30,7 +29,7 @@ export default function Starfield() {
           backgroundColor: 'white',
           borderRadius: '50%',
           opacity: Math.random(),
-          animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate, move-stars ${duration}s linear infinite`,
+          animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate, move-stars 50s linear infinite`,
           animationDelay: `${Math.random() * 3}s`,
         } as React.CSSProperties;
       });
