@@ -66,12 +66,12 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             width={384} 
             height={384} 
             className="h-96 w-96 text-primary animate-wobble-and-rotate"
-            style={{ filter: 'drop-shadow(0 0 20px hsl(var(--foreground) / 0.3))' }}
+            style={{ filter: 'drop-shadow(0 0 30px hsl(var(--foreground) / 0.4))' }}
           />
         )}
        
         {stage >= STAGES.TEXT && (
-          <div className="flex items-center space-x-2 mt-4 overflow-hidden px-4" style={{ filter: 'drop-shadow(0 0 10px hsl(var(--background) / 0.8))' }}>
+          <div className="flex items-center space-x-2 -mt-4 overflow-hidden px-4" style={{ filter: 'drop-shadow(0 0 15px hsl(var(--foreground) / 0.5))' }}>
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
               Gamers
             </span>
