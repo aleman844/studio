@@ -21,7 +21,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center bg-background overflow-hidden">
+        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-end text-right bg-background overflow-hidden">
           <Starfield />
           <Image
             src="/h.png"
@@ -32,8 +32,8 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             priority
           />
           <div className="container relative z-10 px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex flex-col items-center space-y-4 [text-shadow:_0_2px_4px_hsl(var(--background))]">
+            <div className="max-w-2xl ml-auto">
+              <div className="flex flex-col items-end space-y-4 [text-shadow:_0_2px_4px_hsl(var(--background))]">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline">
                   {homeDict.title}
                 </h1>
@@ -41,7 +41,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                   {homeDict.description}
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6 justify-center">
+              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6 justify-end">
                 <Link href={`/${lang}/products`}>
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                     {homeDict.explore_builds}
