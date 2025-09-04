@@ -20,7 +20,7 @@ export default function Starfield() {
     const generateStars = () => {
       const newStars = Array.from({ length: 150 }).map(() => {
         const size = Math.random() * 2 + 1;
-        const duration = Math.random() * 50 + 40; // Slower duration
+        const duration = Math.random() * 30 + 20; // Shorter duration for more frequent movement
         return {
           position: 'absolute',
           top: `${Math.random() * 100}%`,
