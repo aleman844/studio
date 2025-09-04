@@ -23,11 +23,15 @@ export default function Header() {
   const dict = useDictionary()?.header;
   const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
 
+  if (!dict) {
+    return null; // or a loading skeleton
+  }
+
   const navLinks = [
-    { href: '/', label: dict?.home || 'Home' },
-    { href: '/products', label: dict?.products || 'Products' },
-    { href: '/about', label: dict?.about || 'About' },
-    { href: '/blog', label: dict?.blog || 'Blog' },
+    { href: '/', label: dict.home },
+    { href: '/products', label: dict.products },
+    { href: '/about', label: dict.about },
+    { href: '/blog', label: dict.blog },
   ];
 
   const NavLink = ({ href, label }: { href: string; label: string; }) => {
@@ -52,7 +56,7 @@ export default function Header() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="px-2">
           <span className="font-medium uppercase">{lang}</span>
-          <span className="sr-only">Change language</span>
+          <span className="sr-only">{dict.language_switcher}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -115,7 +119,7 @@ export default function Header() {
             <LanguageSwitcher />
             <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground hidden sm:inline-flex">
-                {dict?.contact_us || 'Contact Us'}
+                {dict.contact_us}
               </Button>
             </Link>
           </nav>
