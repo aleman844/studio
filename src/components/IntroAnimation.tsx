@@ -75,7 +75,7 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
        
         {stage >= STAGES.TEXT && (
           <div className={cn(
-            "flex items-center space-x-2 -mt-24 overflow-hidden px-4",
+            "flex items-center space-x-2 -mt-28 overflow-hidden px-4",
              stage === STAGES.HOLD && "animate-scale-in-out"
           )} 
           style={{ filter: 'drop-shadow(0 0 15px hsl(var(--foreground) / 0.5))' }}
