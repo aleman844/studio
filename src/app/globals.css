@@ -71,7 +71,7 @@ body {
       filter: drop-shadow(0 0 45px hsl(var(--foreground) / 0.6));
     }
     50% {
-      filter: drop-shadow(0 0 70px hsl(var(--accent) / 0.9));
+      filter: drop-shadow(0 0 70px hsl(var(--primary) / 0.9));
     }
   }
 
