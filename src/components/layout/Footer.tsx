@@ -32,7 +32,7 @@ export default function Footer() {
   const lang = pathname.split('/')[1] || 'es';
   const dict = useDictionary()?.footer;
   const whatsappUrl = `https://wa.me/573218331005?text=${encodeURIComponent("Hola, estoy interesado en sus productos y me gustaría obtener más información.")}`;
-  const googleMapsUrl = "https://www.google.com/maps/place/Centro+Comercial+Monterrey/@6.2191594,-75.5783228,17z/data=!3m1!4b1!4m6!3m5!1s0x8e44283282b5352d:0x241285265b9386a!8m2!3d6.2191594!4d-75.5757479!16s%2Fg%2F1tdyvlq0?entry=ttu";
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Gamers4Gamers%2CCentro%20Comercial%20Monterrey%2CMedellin";
   
   if (!dict) {
     return null; // or a loading spinner
