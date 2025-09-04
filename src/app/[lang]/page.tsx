@@ -21,46 +21,43 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="relative w-full py-20 md:py-28 lg:py-32 xl:py-40 bg-background overflow-hidden">
+        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center bg-background overflow-hidden">
           <Starfield />
+          <Image
+            src="/h.png"
+            alt="High-performance gaming PC by Gamers4Gamers"
+            data-ai-hint="gaming pc"
+            fill
+            className="object-cover object-center opacity-30"
+            priority
+          />
           <div className="container relative z-10 px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_700px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    {homeDict.title}
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    {homeDict.description}
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href={`/${lang}/products`}>
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                      {homeDict.explore_builds}
-                    </Button>
-                  </Link>
-                  <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                      {homeDict.get_a_quote}
-                    </Button>
-                  </Link>
-                </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col items-center space-y-4 [text-shadow:_0_2px_4px_hsl(var(--background))]">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline">
+                  {homeDict.title}
+                </h1>
+                <p className="max-w-[600px] text-foreground/80 md:text-xl">
+                  {homeDict.description}
+                </p>
               </div>
-              <Image
-                src="/h.png"
-                width={1200}
-                height={800}
-                alt="High-performance gaming PC by Gamers4Gamers"
-                data-ai-hint="gaming pc"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last [mask-image:radial-gradient(ellipse_at_center,white_50%,transparent_100%)]"
-                priority
-              />
+              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6 justify-center">
+                <Link href={`/${lang}/products`}>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    {homeDict.explore_builds}
+                  </Button>
+                </Link>
+                <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+                    {homeDict.get_a_quote}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        <Brands translations={homeDict} />
+        <Brands translations={dict.home} />
         
         <section id="products" className="w-full py-12 md:py-24 lg:py-32">
           <ScrollAnimation>
