@@ -18,7 +18,7 @@ export default function Starfield() {
     } as React.CSSProperties);
 
     const generateStars = () => {
-      const newStars = Array.from({ length: 150 }).map(() => {
+      const newStars = Array.from({ length: 50 }).map(() => {
         const size = Math.random() * 2 + 1;
         return {
           position: 'absolute',
@@ -28,7 +28,7 @@ export default function Starfield() {
           height: `${size}px`,
           backgroundColor: 'white',
           borderRadius: '50%',
-          opacity: Math.random(),
+          opacity: Math.random() * 0.5,
           animation: `twinkle ${Math.random() * 5 + 2}s infinite alternate, move-stars 50s linear infinite`,
           animationDelay: `${Math.random() * 3}s`,
         } as React.CSSProperties;
