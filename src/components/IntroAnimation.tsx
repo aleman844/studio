@@ -19,8 +19,8 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
 
   useEffect(() => {
     const sequence = [
-      () => setStage(STAGES.LOGO), // Show logo after 1s
-      () => setStage(STAGES.TEXT), // Show text after logo
+      () => setStage(STAGES.LOGO), // Show logo
+      () => setStage(STAGES.TEXT), // Show text
       () => setStage(STAGES.HOLD), // Hold everything
       () => {
         setStage(STAGES.FINISH); // Start fade out
@@ -28,22 +28,19 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
       },
     ];
 
-    const timeouts = [1000, 1500, 8000, 1000];
+    // Total duration: 500 + 1000 + 2500 + 1000 = 5000ms (5 seconds)
+    const timeouts = [500, 1000, 2500, 1000];
     let currentTimeoutIndex = 0;
 
-    function runNextStep() {
-      if (currentTimeoutIndex < sequence.length) {
-        const nextStep = sequence[currentTimeoutIndex];
-        const delay = timeouts[currentTimeoutIndex];
-        setTimeout(() => {
-          nextStep();
-          currentTimeoutIndex++;
-          runNextStep();
-        }, delay);
-      }
-    }
+    const timers = timeouts.map((delay, index) => {
+      return setTimeout(() => {
+        sequence[index]();
+      }, timeouts.slice(0, index + 1).reduce((a, b) => a + b, 0) - delay);
+    });
 
-    runNextStep();
+    return () => {
+      timers.forEach(clearTimeout);
+    };
     
   }, [onFinish]);
 
