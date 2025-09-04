@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getDictionary } from '@/lib/dictionaries';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import Brands from '@/components/Brands';
+import Starfield from '@/components/Starfield';
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
@@ -20,8 +21,9 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-24 md:py-40 lg:py-48 xl:py-64 bg-background">
-          <div className="container px-4 md:px-6">
+        <section className="relative w-full py-24 md:py-40 lg:py-48 xl:py-64 bg-background overflow-hidden">
+          <Starfield />
+          <div className="container relative z-10 px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">

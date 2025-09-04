@@ -11,7 +11,7 @@ const brandLogos = [
   { name: 'ASUS', src: '/asus.png', width: 150, height: 80 },
   { name: 'Acer', src: '/acer.png', width: 150, height: 80 },
   { name: 'Nvidia', src: '/nvidia.png', width: 150, height: 80 },
-  { name: 'AMD', src: '/amd.png', width: 150, height: 80 },
+  { name: 'AMD', src: '/amd2.png', width: 150, height: 80 },
 ];
 
 export default function Brands() {
