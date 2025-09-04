@@ -9,7 +9,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getDictionary } from '@/lib/dictionaries';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import Brands from '@/components/Brands';
-import Starfield from '@/components/Starfield';
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang);
@@ -22,7 +21,6 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-start text-left bg-background overflow-hidden">
-          <Starfield />
           <Image
             src="/h.png"
             alt="High-performance gaming PC by Gamers4Gamers"
