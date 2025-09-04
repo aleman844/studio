@@ -68,10 +68,10 @@ body {
 @layer utilities {
   @keyframes scale-in-out {
     0%, 100% {
-      filter: drop-shadow(0 0 35px hsl(var(--foreground) / 0.5));
+      filter: drop-shadow(0 0 45px hsl(var(--foreground) / 0.6));
     }
     50% {
-      filter: drop-shadow(0 0 50px hsl(var(--accent) / 0.8));
+      filter: drop-shadow(0 0 70px hsl(var(--accent) / 0.9));
     }
   }
 
