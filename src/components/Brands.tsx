@@ -67,7 +67,7 @@ export default function Brands() {
             <div
               key={brand.name}
               className={cn(
-                "flex justify-center items-center opacity-0",
+                "flex justify-center items-center h-20 w-full opacity-0",
                 isVisible && "animate-jump-in"
               )}
               style={{ animationDelay: `${index * 200}ms` }}
@@ -77,7 +77,7 @@ export default function Brands() {
                 alt={`${brand.name} logo`}
                 width={brand.width}
                 height={brand.height}
-                className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
+                className="object-contain h-full w-full filter grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
               />
             </div>
           ))}
