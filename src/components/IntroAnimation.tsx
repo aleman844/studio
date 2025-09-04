@@ -66,19 +66,17 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             width={384} 
             height={384} 
             className={cn(
-              "h-96 w-96 text-primary animate-wobble-and-rotate",
-              stage === STAGES.HOLD && "animate-scale-in-out"
+              "h-96 w-96 text-primary animate-wobble-and-rotate"
             )}
-            style={ stage < STAGES.HOLD ? { filter: 'drop-shadow(0 0 15px hsl(var(--foreground) / 0.8))' } : {}}
+            style={ stage === STAGES.HOLD ? { animation: 'scale-in-out 3s ease-in-out infinite', filter: 'drop-shadow(0 0 10px hsl(var(--foreground) / 0.8))' } : { filter: 'drop-shadow(0 0 10px hsl(var(--foreground) / 0.8))' } }
           />
         )}
        
         {stage >= STAGES.TEXT && (
           <div className={cn(
-            "flex items-center space-x-2 mt-0 overflow-hidden px-4",
-             stage === STAGES.HOLD && "animate-scale-in-out"
+            "flex items-center space-x-2 -mt-12 overflow-hidden px-4"
           )} 
-          style={ stage < STAGES.HOLD ? { filter: 'drop-shadow(0 0 15px hsl(var(--foreground) / 0.8))' } : {}}
+          style={ stage === STAGES.HOLD ? { animation: 'scale-in-out 3s ease-in-out infinite', filter: 'drop-shadow(0 0 10px hsl(var(--foreground) / 0.8))' } : { filter: 'drop-shadow(0 0 10px hsl(var(--foreground) / 0.8))' } }
           >
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
               Gamers
