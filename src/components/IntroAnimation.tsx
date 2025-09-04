@@ -69,16 +69,16 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
               "h-96 w-96 text-primary animate-wobble-and-rotate",
               stage === STAGES.HOLD && "animate-scale-in-out"
             )}
-            style={{ filter: 'drop-shadow(0 0 45px hsl(var(--foreground) / 0.6))' }}
+            style={{ filter: 'drop-shadow(0 0 55px hsl(var(--foreground) / 0.6))' }}
           />
         )}
        
         {stage >= STAGES.TEXT && (
           <div className={cn(
-            "flex items-center space-x-2 -mt-36 overflow-hidden px-4",
+            "flex items-center space-x-2 mt-4 overflow-hidden px-4",
              stage === STAGES.HOLD && "animate-scale-in-out"
           )} 
-          style={{ filter: 'drop-shadow(0 0 45px hsl(var(--foreground) / 0.5))' }}
+          style={{ filter: 'drop-shadow(0 0 55px hsl(var(--foreground) / 0.5))' }}
           >
             <span className="text-4xl md:text-5xl font-bold animate-slide-in-left opacity-0" style={{ animationDelay: '0s' }}>
               Gamers
