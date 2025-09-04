@@ -20,7 +20,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-start text-left bg-background overflow-hidden">
+        <section className="relative w-full h-[80vh] flex items-center justify-start text-left bg-background overflow-hidden">
           <Image
             src="/h.png"
             alt="High-performance gaming PC by Gamers4Gamers"
