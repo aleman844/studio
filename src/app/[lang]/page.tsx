@@ -21,19 +21,19 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-end text-right bg-background overflow-hidden">
+        <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-start text-left bg-background overflow-hidden">
           <Starfield />
           <Image
             src="/h.png"
             alt="High-performance gaming PC by Gamers4Gamers"
             data-ai-hint="gaming pc"
             fill
-            className="object-cover object-center opacity-30"
+            className="object-cover object-right opacity-30"
             priority
           />
           <div className="container relative z-10 px-4 md:px-6">
-            <div className="max-w-2xl ml-auto">
-              <div className="flex flex-col items-end space-y-4 [text-shadow:_0_2px_4px_hsl(var(--background))]">
+            <div className="max-w-2xl">
+              <div className="flex flex-col items-start space-y-4 [text-shadow:_0_2px_4px_hsl(var(--background))]">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline">
                   {homeDict.title}
                 </h1>
@@ -41,7 +41,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
                   {homeDict.description}
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6 justify-end">
+              <div className="flex flex-col gap-2 min-[400px]:flex-row mt-6 justify-start">
                 <Link href={`/${lang}/products`}>
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                     {homeDict.explore_builds}
