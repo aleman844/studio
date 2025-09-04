@@ -60,7 +60,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
           </div>
         </section>
 
-        <Brands />
+        <Brands translations={homeDict} />
         
         <section id="products" className="w-full py-12 md:py-24 lg:py-32">
           <ScrollAnimation>

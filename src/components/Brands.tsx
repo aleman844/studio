@@ -2,7 +2,6 @@
 "use client";
 
 import Image from 'next/image';
-import { useDictionary } from '@/hooks/use-dictionary';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -14,8 +13,7 @@ const brandLogos = [
   { name: 'AMD', src: '/amd2.png', width: 150, height: 80 },
 ];
 
-export default function Brands() {
-  const dict = useDictionary()?.home;
+export default function Brands({ translations }: { translations: any }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +39,7 @@ export default function Brands() {
     };
   }, []);
 
-  if (!dict) {
+  if (!translations) {
     return null;
   }
 
@@ -54,10 +52,10 @@ export default function Brands() {
         )}>
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">{dict.trusted_brands}</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">{dict.quality_components}</h2>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">{translations.trusted_brands}</div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">{translations.quality_components}</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                {dict.trusted_brands_description}
+                {translations.trusted_brands_description}
               </p>
             </div>
           </div>
